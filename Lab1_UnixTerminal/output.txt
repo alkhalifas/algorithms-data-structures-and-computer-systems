@@ -1,1 +1,137 @@
 # Simply copy and paste the output from your terminal here!
+
+########################## ls ###############################
+-bash-4.2$ ls -lrth
+total 36K
+drwxr-xr-x. 2 alkhalifas grads 4.0K Jan 20 19:30 ExternalResources
+-rw-r--r--. 1 alkhalifas grads 2.3K Jan 20 19:30 README.md
+drwxr-xr-x. 2 alkhalifas grads 4.0K Jan 20 19:30 images
+-rw-r--r--. 1 alkhalifas grads   26 Jan 20 19:30 main.c
+-rw-r--r--. 1 alkhalifas grads  395 Jan 20 19:30 part0.md
+-rw-r--r--. 1 alkhalifas grads 2.5K Jan 20 19:30 part1.md
+-rw-r--r--. 1 alkhalifas grads 2.7K Jan 20 19:30 part2.md
+-rw-r--r--. 1 alkhalifas grads 2.1K Jan 20 19:30 part3.md
+-rw-r--r--. 1 alkhalifas grads 3.5K Jan 20 19:30 part4.md
+-rw-r--r--. 1 alkhalifas grads   65 Jan 20 19:57 output.txt
+
+
+####################### mkdir ##############################
+-bash-4.2$ mkdir newFolder
+-bash-4.2$ ls -lrth
+total 40K
+drwxr-xr-x. 2 alkhalifas grads 4.0K Jan 20 19:30 ExternalResources
+-rw-r--r--. 1 alkhalifas grads 2.3K Jan 20 19:30 README.md
+drwxr-xr-x. 2 alkhalifas grads 4.0K Jan 20 19:30 images
+-rw-r--r--. 1 alkhalifas grads   26 Jan 20 19:30 main.c
+-rw-r--r--. 1 alkhalifas grads  395 Jan 20 19:30 part0.md
+-rw-r--r--. 1 alkhalifas grads 2.5K Jan 20 19:30 part1.md
+-rw-r--r--. 1 alkhalifas grads 2.7K Jan 20 19:30 part2.md
+-rw-r--r--. 1 alkhalifas grads 2.1K Jan 20 19:30 part3.md
+-rw-r--r--. 1 alkhalifas grads 3.5K Jan 20 19:30 part4.md
+-rw-r--r--. 1 alkhalifas grads  805 Jan 20 19:57 output.txt
+drwxr-xr-x. 2 alkhalifas grads 4.0K Jan 20 19:57 newFolder
+-bash-4.2$ 
+
+####################### cd #################################
+-bash-4.2$ cd newFolder/
+-bash-4.2$ pwd
+/home/alkhalifas/classes/CS5008/monorepo-alkhalifas/Lab1_UnixTerminal/newFolder
+-bash-4.2$ 
+
+
+######################## man ##############################
+-bash-4.2$ man grep
+
+GREP(1)                                             General Commands Manual                                            GREP(1)
+
+NAME
+       grep, egrep, fgrep - print lines matching a pattern
+
+SYNOPSIS
+       grep [OPTIONS] PATTERN [FILE...]
+       grep [OPTIONS] [-e PATTERN | -f FILE] [FILE...]
+
+DESCRIPTION
+       grep  searches the named input FILEs (or standard input if no files are named, or if a single hyphen-minus (-) is given
+       as file name) for lines containing a match to the given PATTERN.  By default, grep prints the matching lines.
+
+       In addition, two variant programs egrep and fgrep are available.  egrep is the same as grep -E.  fgrep is the  same  as
+       grep -F.   Direct  invocation  as either egrep or fgrep is deprecated, but is provided to allow historical applications
+       that rely on them to run unmodified.
+
+######################## rmdir ###########################
+-bash-4.2$ rmdir newFolder/
+-bash-4.2$ ls -lrth
+total 36K
+drwxr-xr-x. 2 alkhalifas grads 4.0K Jan 20 19:30 ExternalResources
+-rw-r--r--. 1 alkhalifas grads 2.3K Jan 20 19:30 README.md
+drwxr-xr-x. 2 alkhalifas grads 4.0K Jan 20 19:30 images
+-rw-r--r--. 1 alkhalifas grads   26 Jan 20 19:30 main.c
+-rw-r--r--. 1 alkhalifas grads  395 Jan 20 19:30 part0.md
+-rw-r--r--. 1 alkhalifas grads 2.5K Jan 20 19:30 part1.md
+-rw-r--r--. 1 alkhalifas grads 2.7K Jan 20 19:30 part2.md
+-rw-r--r--. 1 alkhalifas grads 2.1K Jan 20 19:30 part3.md
+-rw-r--r--. 1 alkhalifas grads 3.5K Jan 20 19:30 part4.md
+-rw-r--r--. 1 alkhalifas grads 2.7K Jan 20 20:01 output.txt
+-bash-4.2$ 
+
+####################### sort ############################
+-bash-4.2$ sort -n randomFile.txt 
+
+4
+8
+15
+16
+23
+42
+
+######################## cat ############################
+
+-bash-4.2$ cat > randomFile.txt
+4
+8
+15
+42
+23
+16
+
+####################### nl ##############################
+
+-bash-4.2$ nl randomFile.txt 
+     1	4
+     2	8
+     3	15
+     4	42
+     5	23
+     6	16
+
+######################### cut ###########################
+
+-bash-4.2$ cut -b 1 randomFile.txt 
+4
+8
+1
+4
+2
+1
+
+####################### grep
+
+-bash-4.2$ grep -in 1 randomFile.txt 
+3:15
+6:16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
