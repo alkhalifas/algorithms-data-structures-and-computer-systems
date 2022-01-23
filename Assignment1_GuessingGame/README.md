@@ -4,7 +4,7 @@
 - How many hours did it take you to complete this assignment? *~3 hours - mostly debugging loops.*
 - Did you collaborate with any other students/TAs/Professors? *No*
 - Did you use any external resources? (Cite them below)
-  - *[Needed to pass an array in a function](https://www.programiz.com/c-programming/c-arrays-functions*)
+  - *[Needed to pass an array in a function](https://www.programiz.com/c-programming/c-arrays-functions)*
   - *[Needed to generate a random number](https://en.cppreference.com/w/c/numeric/random/srand)*
 - (Optional) What was your favorite part of the assignment? *Getting a chance to sit down and explore C. It really is an amazing language, and makes you realize how abstract Python really is.*
 - (Optional) How would you improve the assignment? *Remove the creating of a linux virtual environment. It causes too much chaos given everyones computers are differnet, and not all VM software works the same way.*
