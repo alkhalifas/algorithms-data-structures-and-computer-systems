@@ -1,7 +1,7 @@
 # Monorepo
 
-- [ ] Saleh Alkhalifa
-- [ ] Saa-Leh
+- [ ] Name: Saleh Alkhalifa
+- [ ] Pronounced: [Saa-Leh]
 
 ## Important Documents 
 
