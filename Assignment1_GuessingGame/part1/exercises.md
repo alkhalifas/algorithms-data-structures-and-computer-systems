@@ -7,5 +7,5 @@ In order to start thinking a bit algorithmically, modify this file and answer th
 
 ## Answers
 
-1. *Your answer to question 1*
-2. *Your answer to question 2*
+1. *Assuming no hints at all, since there are 10 possible options ranging from 1-10 inclusively, I would assume that we would need at least 9 guesses.*
+2. *Since there are 10 possible answers, using the hint of higher or lower we can eliminate half the options on each round by selecting the middle value. For example in this an array of 10 options, we can select the middle value, and eliminate half the options. We can do this three more times giving us a total of four guesses. We can show this logarithmicly by taking log2(10), in which we arrive at a value of 3.3 Rounding this upwards gets us to a total of 4, which is the total number of guesses needed.*
