@@ -6,20 +6,26 @@
 // Creates a stack
 stack_t* create_stack(unsigned int capacity){
 	// Modify the body of this function as needed.
-	stack_t* myStack = NULL;	
-
+	stack_t* myStack = (stack_t*)malloc(sizeof(stack_t));	
+	myStack->count = 0;
+	myStack->capacity = MAX_DEPTH;
+	myStack->head = NULL;
 	return myStack;
 }
 
 // Stack Empty
 int stack_empty(stack_t* s){
-
-	return 0;
+	if(s->head == NULL){
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 // Stack Full
 int stack_full(stack_t* s){
-
+	if(s->capacity == MAX_DEPTH){
+		return 1;
 	return 0;
 }
 
