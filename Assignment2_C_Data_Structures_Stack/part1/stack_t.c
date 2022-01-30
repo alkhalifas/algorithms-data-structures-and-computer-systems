@@ -8,7 +8,7 @@ stack_t* create_stack(unsigned int capacity){
 	// Modify the body of this function as needed.
 	stack_t* myStack = (stack_t*)malloc(sizeof(stack_t));	
 	myStack->count = 0;
-	myStack->capacity = MAX_DEPTH;
+	myStack->capacity = capacity;
 	myStack->head = NULL;
 	return myStack;
 }
@@ -24,14 +24,25 @@ int stack_empty(stack_t* s){
 
 // Stack Full
 int stack_full(stack_t* s){
-	if(s->capacity == MAX_DEPTH){
+	if(s->count == s.capacity){
 		return 1;
-	return 0;
+	} else {
+		return 0;
+	}
 }
 
 // Enqueue a new item
 int stack_enqueue(stack_t* s, int item){
-		return -1; // Note: you should have two return statements in this function.
+i	if(s->count == s.capacity) {
+		return -1;
+	} else {
+		node_t* newNode = (node_t*)malloc(sizeof(node_t));
+		newNode->data = item;
+		newNode->next = s->head;
+		s->head = newNode;
+		s->count++;
+		return 0;
+	}
 }
 
 // Dequeue an item
