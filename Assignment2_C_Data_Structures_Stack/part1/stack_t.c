@@ -1,5 +1,5 @@
 #include <stdlib.h>  // Include for malloc/free and NULL
-
+#include <stdio.h>   // Included for printf for testing purposes
 #include "stack_t.h" // Include our function declarations and data types
 
 
@@ -24,7 +24,7 @@ int stack_empty(stack_t* s){
 
 // Stack Full
 int stack_full(stack_t* s){
-	if(s->count == s.capacity){
+	if(s->count == s->capacity){
 		return 1;
 	} else {
 		return 0;
@@ -33,7 +33,7 @@ int stack_full(stack_t* s){
 
 // Enqueue a new item
 int stack_enqueue(stack_t* s, int item){
-i	if(s->count == s.capacity) {
+	if(s->count == s->capacity) {
 		return -1;
 	} else {
 		node_t* newNode = (node_t*)malloc(sizeof(node_t));
@@ -50,19 +50,21 @@ int stack_dequeue(stack_t* s){
 	if(s->head == NULL) {
 		exit(1);
 	} else {
-		removedItem = s->head->data;
+		int removedItem = s->head->data;
 		node_t* previousNode = s->head;
 		s->head = s->head->next;
 		s->count--;
 		return removedItem;
+	}
 }
 
 // Stack Size
 unsigned int stack_size(stack_t* s){
-	if(s->head == NULL) {
+	if(s == NULL) {
 		exit(1);
 	} else {
 		return s->count;
+	}
 }
 
 // Free stack
@@ -77,5 +79,12 @@ void free_stack(stack_t* s){
 	free(s);
 }
 
-
-
+void PrintStack(stack_t* s){
+	// Set iterator to the lists head
+	node_t* iterator = s->head;
+	// Walk through the list and print data
+	while(iterator != NULL){
+		printf("Data: %d\n", iterator->data);
+		iterator = iterator->next;
+	}
+}
