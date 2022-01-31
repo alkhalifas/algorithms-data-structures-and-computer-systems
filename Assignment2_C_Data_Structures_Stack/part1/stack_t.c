@@ -47,18 +47,27 @@ i	if(s->count == s.capacity) {
 
 // Dequeue an item
 int stack_dequeue(stack_t* s){
-
-		return 9999999; // Note: This line is a 'filler' so the code compiles.
+	if(s->head == NULL) {
+		exit(1);
+	} else {
+		removedItem = s->head->data;
+		node_t* previousNode = s->head;
+		s->head = s->head->next;
+		s->count--;
+		return removedItem;
 }
 
 // Stack Size
 unsigned int stack_size(stack_t* s){
-	return 0;
+	if(s->head == NULL) {
+		exit(1);
+	} else {
+		return s->count;
 }
 
 // Free stack
 void free_stack(stack_t* s){
-
+	node_t*
 }
 
 
