@@ -122,7 +122,8 @@ int unitTest4(int status){
 int unitTest5(int status){
     int passed = 0;
     
-    stack_t* test_s = create_stack(MAX_DEPTH);
+    // Changed per the discussion @77 on Piazza!
+    stack_t* test_s = create_stack(1);
     stack_enqueue(test_s,1);
     if(1==stack_full(test_s)){
         passed = 1;
