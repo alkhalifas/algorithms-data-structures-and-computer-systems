@@ -67,7 +67,14 @@ unsigned int stack_size(stack_t* s){
 
 // Free stack
 void free_stack(stack_t* s){
-	node_t*
+	node_t* previous;
+	node_t* iterator = s->head;
+	while (iterator != NULL) {
+		previous = iterator;
+		iterator = iterator->next;
+		free(previous);
+	}
+	free(s);
 }
 
 
