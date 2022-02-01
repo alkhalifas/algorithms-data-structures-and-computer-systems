@@ -145,6 +145,7 @@ int unitTest5(int status){
 }
 
 
+
 // NOTE: 
 // If you would like to add additional 
 // unit tests to test your stack functonality, 
@@ -169,7 +170,7 @@ int main(){
     // List of Unit Tests to test your data structure
     int counter =0;
     while(unitTests[counter]!=NULL){
-	    printf("========unitTest %d========\n",counter);
+	    printf("========unitTest %d========\n",counter + 1);
         if(1==unitTests[counter](1)){
 		    printf("passed test\n");
     		testsPassed++;	
