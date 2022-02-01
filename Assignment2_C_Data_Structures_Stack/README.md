@@ -5,9 +5,9 @@
 - Did you collaborate with any other students/TAs/Professors? No, I did not.
 - Did you use any external resources? (Cite them below)
   - [Incrementing and Decrementing](https://overiq.com/c-programming-101/increment-and-decrement-operators-in-c/)
-  - tbd
-- (Optional) What was your favorite part of the assignment?
-- (Optional) How would you improve the assignment?
+  - [Understanding Linked Lists](https://www.learn-c.org/en/Linked_lists)
+- (Optional) What was your favorite part of the assignment? I really enjoyed building linked lists and learning how to connect them
+- (Optional) How would you improve the assignment? Can we tie this to a real-world application? Perhaps generating a linked list equivalent to a list of instagram likes on a post?
 
 # Logistics
 
