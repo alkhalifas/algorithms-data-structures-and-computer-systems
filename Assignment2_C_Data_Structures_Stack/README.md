@@ -1,10 +1,10 @@
 # TODO Please edit the following information in your assignment
 
-- Name:
-- How many hours did it take you to complete this assignment?
-- Did you collaborate with any other students/TAs/Professors?
+- Name: Saleh Alkhalifa
+- How many hours did it take you to complete this assignment? 4hours coding, another 4 debugging
+- Did you collaborate with any other students/TAs/Professors? No, I did not.
 - Did you use any external resources? (Cite them below)
-  - tbd
+  - [Incrementing and Decrementing](https://overiq.com/c-programming-101/increment-and-decrement-operators-in-c/)
   - tbd
 - (Optional) What was your favorite part of the assignment?
 - (Optional) How would you improve the assignment?
