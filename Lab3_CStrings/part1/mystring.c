@@ -8,31 +8,39 @@
 //
 //
 size_t my_strlen(const char* input){
-    int length = 0;
-    while(input[length] != '\0';
-        length++;
+    int len = 0;
+    while(input[len] != '\0'){
+        len++;
     }
-    return length;   
+    return len;   
 }
 
 // search: 'man strcmp' to see what function should do
-//
-//
-//
-//
 int my_strcmp(const char* src1, const char* src2){
-    // IMPLEMENT
-    return 0;   
+    
+    // Compare each and increment
+    while(*src1 && (*src1==*src2)) {
+        src1++;
+        src2++;
+    }
+    return *(const unsigned char*)src1 - *(const unsigned char*)src2;   
 }
 
 // search: 'man strchr' to see what function should do
-//
-//
-//
-//
 char* my_strchr(const char* src1, int c){
-    // IMPLEMENT
-    return NULL;   
+    
+    // Traverse string until we hit character, or null
+    // terminator
+    while(*src1 != c && *src1 != '\0'){
+        src1++;
+    }
+
+    // Once we find c, return pointer
+    if(*src1 == c) {
+        return src1;
+    } else {
+        return NULL;
+    }
 }
 
 // search: 'man strcat' to see what function should do
@@ -40,33 +48,36 @@ char* my_strchr(const char* src1, int c){
 //       than 'strcat'. 
 //       I would like you to return a 'heap allocated' string
 //       that appends both of src1 and src2 into a new buffer
+// Note: Taken from Professor's Shah's posted video
 char* my_string_append(const char* src1, const char* src2){
+
     // Compute the lengths of the two strings
-    size_t src1Length = StringLength(src1);
-    size_t src2Length = StringLength(src2);
+    size_t dstLength = my_strlen(src1);
+    size_t srcLength = my_strlen(src2);
 
-    // Set storage for the new string
-    char* newString = (char*)malloc(sizeof(char)*(src1Length+src2Length+1));
+    // Create home for new string using malloc
+    char* newString = (char*)malloc(sizeof(char)*(dstLength+srcLength+1));
 
-    // Copy first string into new string
+    // Copy first source into string
     int i = 0;
-    while(i<src1Length){
+    while(i<dstLength){
         newString[i] = src1[i];
-        i++;
+	i++;
     }
 
-    // Copy second string into new string
+    // Copy second source into string
     int j = 0;
-    while(j<src2Length){
-        newString[src1Length+j] = src2[j];
+    while(j<srcLength){
+        newString[dstLength+j] = src2[j];
         j++;
     }
+    
+    // Set null terminator
+    newString[dstLength+srcLength] = '\0';
 
-    // Add null terminator
-    newString[src1Length+src2Length] = '\0';
-
-    return newString;   
+    return newString;
 }
+
 
 
 
