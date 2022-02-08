@@ -42,7 +42,16 @@ int queue_full(queue_t* q){
 
 // Enqueue a new item
 int queue_enqueue(queue_t* q, int item){
-		return -1; // Note: you should have two return statements in this function.
+    // Check if the queue is full using queue_full function
+    if (queue_full(q) == 1){
+        return -1;
+    } else {
+        // Adjust size, back, and data 
+        q->size = q->size + 1;
+        q->back = (q->back + 1) % q->capacity;
+        q->data[q->back] = item;
+    return 0;
+    }
 }
 
 // Dequeue an item
@@ -70,7 +79,6 @@ int main() {
 
     queue_t* test1 = create_queue(1);
     printf("########################################\n");
-    printf("Attempting to add %d\n",1);
     printf("Printing test1->size = %d\n", test1->size);
     printf("Printing test1->capacity = %d\n", test1->capacity);
     printf("Printing test1->data = %d\n", test1->data);
@@ -79,7 +87,11 @@ int main() {
     printf("----------------------------------------\n");
     printf("Printing queue_empty(test1) = %d\n", queue_empty(test1));
     printf("Printing queue_full(test1) = %d\n", queue_full(test1));
-
+    printf("----------------------------------------\n");
+    printf("Adding an item queue_enqueue(test1, 55)\n");
+    queue_enqueue(test1, 55);
+    printf("Printing test1->size = %d\n", test1->size);
+    printf("Printing test1->capacity = %d\n", test1->capacity);
 
     //queue_enqueue(test1,1);	
     //printf("Removing: %d\n",queue_dequeue(test1));	
