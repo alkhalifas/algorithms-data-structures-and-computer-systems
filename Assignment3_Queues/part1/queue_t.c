@@ -3,7 +3,18 @@
 
 // Create a queue
 queue_t* create_queue(unsigned int _capacity){
-    return NULL; // TODO: change this code
+    
+    // Create a new queue and set size using malloc
+    queue_t* newQueue = (queue_t*)malloc(size_of(queue_t));
+
+    // Set the back, front, size, capacity, and data
+    newQueue->back = _capacity - 1;
+    newQueue->front = 0;
+    newQueue->capacity = _capacity;
+    newQueue->size = 0;
+    newQueue->data = 0;
+
+    return newQueue; 
 }
 
 
