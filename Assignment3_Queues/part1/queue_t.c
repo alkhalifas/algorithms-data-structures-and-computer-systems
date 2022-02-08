@@ -63,9 +63,12 @@ int queue_dequeue(queue_t *q){
 
 // Queue Size
 unsigned int queue_size(queue_t* q){
-	return q->size;
+    if (q == NULL) {
+        exit(1)
+    } else {
+        return q->size;
+    }
 }
-
 
 // Free queue
 void free_queue(queue_t* q){
