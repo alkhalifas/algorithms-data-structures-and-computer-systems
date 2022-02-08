@@ -21,8 +21,11 @@ queue_t* create_queue(unsigned int _capacity){
 
 // Queue Empty
 int queue_empty(queue_t* q){
-
-	return 0;
+    if (q->size == 0) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 // Queue Full
