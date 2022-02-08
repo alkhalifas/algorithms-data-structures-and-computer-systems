@@ -63,7 +63,7 @@ int queue_dequeue(queue_t *q){
 
 // Queue Size
 unsigned int queue_size(queue_t* q){
-	return 0;
+	return q->size;
 }
 
 
