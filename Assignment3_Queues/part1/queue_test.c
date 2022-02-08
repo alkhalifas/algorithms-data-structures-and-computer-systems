@@ -211,7 +211,7 @@ int unitTest10(int status){
     queue_t* testq = create_queue(1);
     queue_enqueue(testq,1);
 	
-    if(0==queue_full(testq)){
+    if(1==queue_full(testq)){
         passed = 1;
     }else{
 	    free_queue(testq);

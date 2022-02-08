@@ -3,11 +3,9 @@
 #include <stdio.h>
 
 // Create a queue
-queue_t* create_queue(unsigned int _capacity){
-    
+queue_t* create_queue(unsigned int _capacity){    
     // Create a new queue and set size using malloc
     queue_t* newQueue = (queue_t*)malloc(sizeof(queue_t));
-
     // Set the back, front, size, capacity, and data
     newQueue->back = _capacity - 1;
     newQueue->front = 0;
@@ -56,9 +54,11 @@ int queue_enqueue(queue_t* q, int item){
 
 // Dequeue an item
 int queue_dequeue(queue_t *q){
+    // Check if queue is empty using queue_empty function
     if (queue_empty(q) == 1){
         return -1;
     } else {
+        // Adjust size, back, and data
         q->size = q->size - 1;
         q->back = (q->back - 1) % q->capacity;
     return 0;
@@ -67,6 +67,7 @@ int queue_dequeue(queue_t *q){
 
 // Queue Size
 unsigned int queue_size(queue_t* q){
+    // Check if queue is NULL, throw exit(1)
     if (q == NULL) {
         exit(1);
     } else {
@@ -76,6 +77,7 @@ unsigned int queue_size(queue_t* q){
 
 // Free queue
 void free_queue(queue_t* q){
+    // Free data in queue, then queue
     free(q->data);
     free(q);
 }
