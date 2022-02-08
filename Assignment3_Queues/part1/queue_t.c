@@ -64,7 +64,7 @@ int queue_dequeue(queue_t *q){
 // Queue Size
 unsigned int queue_size(queue_t* q){
     if (q == NULL) {
-        exit(1)
+        exit(1);
     } else {
         return q->size;
     }
@@ -72,33 +72,7 @@ unsigned int queue_size(queue_t* q){
 
 // Free queue
 void free_queue(queue_t* q){
-
+    free(q->data);
+    free(q);
 }
 
-
-
-
-int main() {
-
-    queue_t* test1 = create_queue(1);
-    printf("########################################\n");
-    printf("Printing test1->size = %d\n", test1->size);
-    printf("Printing test1->capacity = %d\n", test1->capacity);
-    printf("Printing test1->data = %d\n", test1->data);
-    printf("Printing test1->front = %d\n", test1->front);
-    printf("Printing test1->back = %d\n", test1->back);
-    printf("----------------------------------------\n");
-    printf("Printing queue_empty(test1) = %d\n", queue_empty(test1));
-    printf("Printing queue_full(test1) = %d\n", queue_full(test1));
-    printf("----------------------------------------\n");
-    printf("Adding an item queue_enqueue(test1, 55)\n");
-    queue_enqueue(test1, 55);
-    printf("Printing test1->size = %d\n", test1->size);
-    printf("Printing test1->capacity = %d\n", test1->capacity);
-
-    //queue_enqueue(test1,1);	
-    //printf("Removing: %d\n",queue_dequeue(test1));	
-    //free_queue(test1);
-
-    return 0;
-}
