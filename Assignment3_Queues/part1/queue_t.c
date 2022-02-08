@@ -56,10 +56,14 @@ int queue_enqueue(queue_t* q, int item){
 
 // Dequeue an item
 int queue_dequeue(queue_t *q){
-
-		return 99999; // Note: This line is a filler so the code compiles.
+    if (queue_empty(q) == 1){
+        return -1;
+    } else {
+        q->size = q->size - 1;
+        q->back = (q->back - 1) % q->capacity;
+    return 0;
+    }
 }
-
 
 // Queue Size
 unsigned int queue_size(queue_t* q){
