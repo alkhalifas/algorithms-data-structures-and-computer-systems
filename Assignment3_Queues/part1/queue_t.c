@@ -21,6 +21,7 @@ queue_t* create_queue(unsigned int _capacity){
 
 // Queue Empty
 int queue_empty(queue_t* q){
+    // check if size equals zero
     if (q->size == 0) {
         return 1;
     } else {
@@ -30,8 +31,12 @@ int queue_empty(queue_t* q){
 
 // Queue Full
 int queue_full(queue_t* q){
-
+    // Check if size equals capacity
+    if (q->size == q->capacity) {
+        return 1;
+    } else {
 	return 0;
+    }
 }
 
 // Enqueue a new item
