@@ -58,10 +58,11 @@ int queue_dequeue(queue_t *q){
     if (queue_empty(q) == 1){
         return -1;
     } else {
-        // Adjust size, back, and data
+        // Adjust size, and back
         q->size = q->size - 1;
         q->back = (q->back - 1) % q->capacity;
-    return 0;
+    // return the first item
+    return q->data[q->front];
     }
 }
 
