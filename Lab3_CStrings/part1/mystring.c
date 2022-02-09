@@ -37,7 +37,7 @@ char* my_strchr(const char* src1, int c){
 
     // Once we find c, return pointer
     if(*src1 == c) {
-        return src1;
+        return (char*)src1;
     } else {
         return NULL;
     }
