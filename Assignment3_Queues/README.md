@@ -5,7 +5,7 @@
 - Did you collaborate with any other students/TAs/Professors? Juan Ceruli was kind enough to answer my question about the assignment on Piazza.
 - Did you use any external resources? (Cite them below)
   - https://www.learncpp.com/cpp-tutorial/5-3-modulus-and-exponentiation/
-  - Lucidchart.com to draw my diagram
+  - https://lucid.app/lucidchart/ to draw my diagram
 - (Optional) What was your favorite part of the assignment? I liked creating a structure that was similar to something I had worked with (Stack) and see the differences. I know it sounds silly, but it really helps to see things from multiple perspectives rather than quickly moving on to something else.
 - (Optional) How would you improve the assignment? Similar to what I mentioned in the last assignment, it would be nice to relate this to a real-world topic on when I NEED to use a ring buffer rather than other alternatives. 
 
