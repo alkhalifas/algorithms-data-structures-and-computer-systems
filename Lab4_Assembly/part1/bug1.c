@@ -56,7 +56,14 @@ int main(){
         printf("Student %d\n",j);
         printf("\tGrade: %d\n",class[j].grade);
         printf("\tID   : %s\n",class[j].nameID);
-    }
 
+        // free((void *)&class[j]);
+        // free(&class[j]); //causes errors, does not free memory
+        // free(class[j]); // causes errors, does not free memory
+
+        
+    }
+    
+    free(class);
     return 0;
 }
