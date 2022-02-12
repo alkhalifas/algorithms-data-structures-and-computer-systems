@@ -63,7 +63,12 @@ int main(){
 
         
     }
-    
+    int k;
+    for(k=0; k<5; k++){
+        free(class[k].nameID);
+    };
+
     free(class);
+   
     return 0;
 }
