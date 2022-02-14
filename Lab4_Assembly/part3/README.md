@@ -101,7 +101,7 @@ The C programming language has a 'goto' command, search how to use it if you hav
 
 ### Response/Observations
 
-*Write here your observations with a switch statement*
+*After translating the program to Assembly, there are a few noticeable items I see here that I have not seen in the other items we have prepared so far. First, I noticed that the strings listed in each of the cases, are listed at the top of the Assembly file in their respective labels, ranging from .LC0 to .LC4 which I had not seen so far. Second, there is a new Assembly instruction we have not come across yet called MOVSX whose function is to move byte to word with sign-extension. From what I understand, this instruction obtains the byte located at the specific address EAX, and is then copied to the destination, which represents the value of the switch statement. This of course is followed by a SUB, CMP and JA instructions that subtract, compare and jumps based on the switch statement's value. Finally, for each of the cases, a label is designated comprising a MOV, CALL, and JMP instructions. *
 
 ## Compiler generated assembly 8 - Add Function
 
