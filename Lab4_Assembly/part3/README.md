@@ -115,7 +115,7 @@ The C programming language has a 'goto' command, search how to use it if you hav
 
 ### Response/Observations
 
-*Write here where popq is called*
+*In this file, we create a function called add(long a, long b) which is called in main(). After looking over the code, we see that there is a section or label dedicated to the add() function listed above the one pertaining to main(). Inside add, we see two instructions at the top and bottom of the function: PUSH and POP, and within these instructions are a number of other instructions such as MOV. The MOV instructions utilize the RDI and RSI registers which are used for a functions first and second arguments, respectively. THis is then followed by the ADD function which adds the two values witin RAX and RDX together. Finally, this is followed by the POP instruction to restore whatever is on top of the stack into a register. The values are then printed in one of the string labels showing the proper output format.*
 
 # More resources to help
 
