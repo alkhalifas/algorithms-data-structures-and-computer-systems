@@ -89,7 +89,7 @@ The C programming language has a 'goto' command, search how to use it if you hav
 
 ### Response/Observations
 
-*Write here a note about where the code goes for the condition statement.*
+*I wrote a simple script here that prints line over the course of a for loop within main(). Upon looking over the translated assembly code, it was not exactly what I had expected. Using CompilerExoplorer, I noticed that the lines representing the for loop in C, are actually dispersed across three labels in Assembly. Starting with the MOV instruction using a source of [rbp-4] and a destination of 0 in main(), we move to the L3 label where the eax, esi and edi registers are used to print the statement. Upon completion, the value 1 is added to [rbp-4], which I assume represents an incrementation within the for loop. The CMP instruction is then used to compare the two values, with the first being [rbp-4] which represents the current value, and the value of 4 which is the final value within the range of the for loop. Once the values are the same, the LEAVE instruction is then used followed by RET, to return.*
 
 ## Compiler generated assembly 7 - Switch Statements
 
