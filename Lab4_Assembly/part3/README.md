@@ -78,7 +78,7 @@ The C programming language has a 'goto' command, search how to use it if you hav
 
 ### Response/Observations
 
-*Write here what kind of jmp statement is inserted*
+*After looking over the assembly file, I noticed two different jump instructions here: JNE and JMP. Under the main label, JNE, which stands for jump not equals, was listed as the idea here is to jump to a label called L2 if the values do not match in the TESTL instruction above it. On the other hand, the label L3 listed the JMP instruction, which performs an unconditional jump to the label L5 which is the end of the script.*
 
 ## Compiler generated assembly 6 - For-loops
 - Write a C program using a for-loop that counts to 5.
