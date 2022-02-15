@@ -60,11 +60,17 @@ int main(int argc, char** argv){
         for(j=0; j<9; j++){
             char *pch = strstr(buffer, matchArray[j]);
             if(pch) {
-                matchArrayCount[j] += 1;
+                matchArrayCount[j] = matchArrayCount[j] + 1;
             }
         }
     }
-    
+
+    int k;
+    for(k = 0; k < 9; k++){
+        printf("TOTAL %s = %d \n", matchArray[k], matchArrayCount[k]);
+    }    
+
+
     fclose(myFile);
 
 
