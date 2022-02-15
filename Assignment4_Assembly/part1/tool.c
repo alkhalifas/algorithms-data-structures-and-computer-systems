@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <ctype.h>
 
 
 
@@ -58,10 +58,26 @@ int main(int argc, char** argv){
        // printf("LINE: %s", buffer);
         int j;
         for(j=0; j<9; j++){
-            char *pch = strstr(buffer, matchArray[j]);
-            if(pch) {
-                matchArrayCount[j] = matchArrayCount[j] + 1;
+
+            printf("########################################################################################\n");
+            printf("----> BUFFER ALL   =  %s \n", buffer);
+
+            int l;
+            for(l = 0; buffer[l]; l++) {
+                buffer[l] = tolower(buffer[l]);
             }
+
+            printf("----> BUFFER LOWER = %s \n", buffer);
+
+            //printf("----> STRING = %s \n", matchArray[j]);
+
+
+            if(strstr(buffer, matchArray[j]) != NULL) {
+                printf("MATCH!");
+                matchArrayCount[j] = matchArrayCount[j] + 1;
+            
+            }
+        
         }
     }
 
