@@ -1,7 +1,7 @@
 // Implement your cycle count tool here.
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 
 
@@ -13,15 +13,27 @@
 int main(int argc, char** argv){
     
     // Set counts for each of the instructions
-    int addCount = 0;
-    int subCount = 0;
-    int mulCount = 0;
-    int divCount = 0;
-    int movCount = 0;
-    int leaCount = 0;
-    int pushCount = 0;
-    int popCount = 0;
-    int retCount = 0;
+    int matchArrayCount[9];
+    matchArrayCount[0] = 0;
+    matchArrayCount[1] = 0;
+    matchArrayCount[2] = 0;
+    matchArrayCount[3] = 0;
+    matchArrayCount[4] = 0;
+    matchArrayCount[5] = 0;
+    matchArrayCount[6] = 0;
+    matchArrayCount[7] = 0;
+    matchArrayCount[8] = 0;
+ 
+    char *matchArray[9];
+    matchArray[0] = "ADD";
+    matchArray[1] = "SUB";
+    matchArray[2] = "MUL";
+    matchArray[3] = "DIV";
+    matchArray[4] = "MOV";
+    matchArray[5] = "LEA";
+    matchArray[6] = "PUSH";
+    matchArray[7] = "POP";
+    matchArray[8] = "RET";
 
     // Iterate over the args with argv[1] being the file of interest
     int i;
@@ -43,8 +55,14 @@ int main(int argc, char** argv){
 
     fseek(myFile, 0, SEEK_SET);
     while(fgets(buffer, 255, myFile)){
-        printf("LINE: %s", buffer);
-
+       // printf("LINE: %s", buffer);
+        int j;
+        for(j=0; j<9; j++){
+            char *pch = strstr(buffer, matchArray[j]);
+            if(pch) {
+                matchArrayCount[j] += 1;
+            }
+        }
     }
     
     fclose(myFile);
