@@ -4,9 +4,8 @@
 #include <string.h>
 #include <ctype.h>
 
-
 void printResults(int matchArrayCount[], char *matchArray[], int matchArrayCycle[]){
-
+    printf("\n\n\n");
     printf("#######################################\n");
     printf("#############  Results: ###############\n");
     printf("#######################################\n");
@@ -18,18 +17,16 @@ void printResults(int matchArrayCount[], char *matchArray[], int matchArrayCycle
     for(i = 0; i < 9; i++) {
         if(matchArrayCount[i] != 0){
             printf("######  %s = %d\n", matchArray[i], matchArrayCount[i]);
-            totalInstructions++;
+            totalInstructions = totalInstructions + matchArrayCount[i];
             totalCycles = totalCycles + (matchArrayCount[i] * matchArrayCycle[i]);
         }
     }
+
     printf("#######################################\n");
     printf("###### Total Cycles = %d\n", totalCycles);
     printf("###### Total Instrs = %d\n", totalInstructions);
-    printf("#######################################\n");
+    printf("#######################################\n\n\n\n");
 }
-
-
-
 
 int main(int argc, char** argv){
     
@@ -112,16 +109,5 @@ int main(int argc, char** argv){
 
     fclose(myFile);
 
-
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
