@@ -25,15 +25,15 @@ int main(int argc, char** argv){
     matchArrayCount[8] = 0;
  
     char *matchArray[9];
-    matchArray[0] = "ADD";
-    matchArray[1] = "SUB";
-    matchArray[2] = "MUL";
-    matchArray[3] = "DIV";
-    matchArray[4] = "MOV";
-    matchArray[5] = "LEA";
-    matchArray[6] = "PUSH";
-    matchArray[7] = "POP";
-    matchArray[8] = "RET";
+    matchArray[0] = "add";
+    matchArray[1] = "sub";
+    matchArray[2] = "mul";
+    matchArray[3] = "div";
+    matchArray[4] = "mov";
+    matchArray[5] = "lea";
+    matchArray[6] = "push";
+    matchArray[7] = "pop";
+    matchArray[8] = "ret";
 
     // Iterate over the args with argv[1] being the file of interest
     int i;
@@ -50,45 +50,34 @@ int main(int argc, char** argv){
         exit(1);
     }
 
-    // Set buffer
-    char buffer[255];
+    // Iterate over the instruction options
 
-    fseek(myFile, 0, SEEK_SET);
-    while(fgets(buffer, 255, myFile)){
-       // printf("LINE: %s", buffer);
-        int j;
-        for(j=0; j<9; j++){
+    while(!feof(myFile)){
 
-            //printf("########################################################################################\n");
-            //printf("----> BUFFER ALL   =  %s \n", buffer);
-
-            int l;
-            for(l = 0; buffer[l]; l++) {
-                buffer[l] = tolower(buffer[l]);
-            }
-
-            for(l = 0; matchArray[j][l]; l++) {
-                matchArray[j][l] = tolower(matchArray[j][l]);
-            }
-
-            //printf("----> BUFFER LOWER = %s \n", buffer);
-
-            //printf("----> STRING = %s \n", matchArray[j]);
-
-
-            if(strstr(buffer, matchArray[j]) != NULL) {
-                printf("MATCH!");
-                matchArrayCount[j] = matchArrayCount[j] + 1;
-            
-            }
+        char buffer[255];
+          
+        fscanf(myFile, "%s", buffer);
         
+        for(i = 0; i < 9; i++){
+    
+            if(strstr(buffer, matchArray[i]) != NULL){
+
+                printf(">>> FOUND %s in --> %s\n", matchArray[i], buffer);
+
+                matchArrayCount[i]++;
+            }
+
+            //printf("No Match for %s  ..\n", matchArray[i]);
+            
         }
+    
     }
 
-    int k;
-    for(k = 0; k < 9; k++){
-        printf("TOTAL %s = %d \n", matchArray[k], matchArrayCount[k]);
-    }    
+    for(i = 0; i < 9; i++) {
+
+        printf("Total %s = %d\n", matchArray[i], matchArrayCount[i]);
+
+    }
 
 
     fclose(myFile);
