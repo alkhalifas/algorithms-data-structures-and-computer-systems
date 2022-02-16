@@ -59,15 +59,19 @@ int main(int argc, char** argv){
         int j;
         for(j=0; j<9; j++){
 
-            printf("########################################################################################\n");
-            printf("----> BUFFER ALL   =  %s \n", buffer);
+            //printf("########################################################################################\n");
+            //printf("----> BUFFER ALL   =  %s \n", buffer);
 
             int l;
             for(l = 0; buffer[l]; l++) {
                 buffer[l] = tolower(buffer[l]);
             }
 
-            printf("----> BUFFER LOWER = %s \n", buffer);
+            for(l = 0; matchArray[j][l]; l++) {
+                matchArray[j][l] = tolower(matchArray[j][l]);
+            }
+
+            //printf("----> BUFFER LOWER = %s \n", buffer);
 
             //printf("----> STRING = %s \n", matchArray[j]);
 
