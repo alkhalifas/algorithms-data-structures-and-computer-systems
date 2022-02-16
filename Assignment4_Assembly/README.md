@@ -1,13 +1,13 @@
-# TODO Please edit the following information in your assignment
+#TODO Please edit the following information in your assignment
 
-- Name: *edit me*
-- How many hours did it take you to complete this assignment? *edit me*
-- Did you collaborate with any other students/TAs/Professors? *edit me*
+- Name: *Saleh ALkhalifa*
+- How many hours did it take you to complete this assignment? *About 4 hours*
+- Did you collaborate with any other students/TAs/Professors? *Juan Ceruli helped me*
 - Did you use any external resources? (Cite them below)
-  - *edit me*
-  - *edit me and add more rows if needed*
-- (Optional) What was your favorite part of the assignment? *edit me*
-- (Optional) How would you improve the assignment? *edit me*
+  - [End of File](https://www.tutorialspoint.com/c_standard_library/c_function_feof.htm)
+  - [Substrings](https://www.tutorialspoint.com/c_standard_library/c_function_strstr.htm)
+- (Optional) What was your favorite part of the assignment? *I really enjoyed having the freedom to write code without a header file and other contrains, and being able to explore and implement things based on what I learned so far.*
+- (Optional) How would you improve the assignment? *If you could provide an extra-credit opportunity to include more instructions, and 'real-world' practices on quantifying cycles, that would be appreciated!*
 
 # Logistics
 
