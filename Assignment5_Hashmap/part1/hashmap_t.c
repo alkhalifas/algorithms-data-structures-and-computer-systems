@@ -11,7 +11,7 @@ int stringHash(char* myKey, int numberOfBuckets){
 // Initializes the capacity(i.e. number of buckets)
 hashmap_t* hashmap_create(unsigned int _buckets){
     // Allocate memory for our hashmap
-	//TODO
+    hashmap_t* hashMap = (hashmap_t*)malloc(sizeof(hashmap_t));
     // Set the number of buckets
 	//TODO
     // Initialize our array of lists for each bucket
