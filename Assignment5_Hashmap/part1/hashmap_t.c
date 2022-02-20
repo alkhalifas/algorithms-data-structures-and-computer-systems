@@ -36,12 +36,15 @@ void hashmap_delete(hashmap_t* _hashmap){
         for(i = 0; i < _hashmap->buckets; i++){
             // Iterator pattent to traverse arrayOfLists
             node_t* iterator = _hashmap->arrayOfLists[i];
-            // Set temporary variable
-            node_t* tempVar = iterator;
-            // Set iterator to next
-            iterator = iterator->next;
-            // Free the temporary variable (node)
-            free(tempVar); 
+
+            while(NULL != iterator) {
+                // Set temporary variable
+                node_t* tempVar = iterator;
+                // Set iterator to next
+                iterator = iterator->next;
+                // Free the temporary variable (node)
+                free(tempVar); 
+            }
         }
         // Free the arrayOfLists
         free(_hashmap->arrayOfLists);
