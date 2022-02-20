@@ -1,5 +1,6 @@
 #include "hashmap_t.h"
-
+#include <stdio.h>
+#include <stdlib.h>
 // Simple hash function that will put a key into a bucket
 // You should not modify this
 int stringHash(char* myKey, int numberOfBuckets){
@@ -18,7 +19,7 @@ hashmap_t* hashmap_create(unsigned int _buckets){
     hashMap->arrayOfLists = (node_t**)malloc(sizeof(node_t*) * _buckets);
     // Setup our hashFunction to point to our
     // stringHash function.
-    hashMap->hasFunction = stringHash;
+    hashMap->hashFunction = stringHash;
     // Return the new map that we have created
     return hashMap;
 }
@@ -94,5 +95,8 @@ void hashmap_update(hashmap_t* _hashmap, char* key, char* newValue){
 //  - Iterate through every bucket and print out the keys
 // This function should run in O(n) time
 void hashmap_printKeys(hashmap_t* _hashmap){
-	//TODO
+    int i;
+    for(i = 0; _hashmap->buckets; i++) {
+        printf("Number of Items in Bucket = %d\n", i);
+    }
 }
