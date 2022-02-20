@@ -29,12 +29,24 @@ hashmap_t* hashmap_create(unsigned int _buckets){
 // Must also free all of the chains in the hashmap
 // This function should run in O(n) time
 void hashmap_delete(hashmap_t* _hashmap){
+    // Check if not NULL
     if(_hashmap != NULL){
         int i;
+        // Iterate over the buckets:
         for(i = 0; i < _hashmap->buckets; i++){
+            // Iterator pattent to traverse arrayOfLists
             node_t* iterator = _hashmap->arrayOfLists[i];
-            node_t* tempVar = iter;
-            
+            // Set temporary variable
+            node_t* tempVar = iterator;
+            // Set iterator to next
+            iterator = iterator->next;
+            // Free the temporary variable (node)
+            free(tempVar); 
+        }
+        // Free the arrayOfLists
+        free(_hashmap->arrayOfLists);
+        // Free the actual hashmap
+        free(_hashmap);
     }
 }
 
