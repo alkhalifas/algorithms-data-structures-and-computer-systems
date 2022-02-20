@@ -95,8 +95,16 @@ void hashmap_update(hashmap_t* _hashmap, char* key, char* newValue){
 //  - Iterate through every bucket and print out the keys
 // This function should run in O(n) time
 void hashmap_printKeys(hashmap_t* _hashmap){
-    int i;
-    for(i = 0; _hashmap->buckets; i++) {
-        printf("Number of Items in Bucket = %d\n", i);
+    if(_hashmap != NULL){
+        int i;
+        for(i = 0; _hashmap->buckets; i++) {
+            printf("Number of Items in Bucket = %d\n", i);
+            node_t* iter = _hashmap->arrayOfLists[i];
+            //printf("Current Iter = %d\n", iter->kv->key);
+            while(NULL != iter) {
+                printf("Current = %s ---- %s", iter->kv->key, iter->kv->value);
+                iter = iter->next;
+            }
+        }
     }
 }
