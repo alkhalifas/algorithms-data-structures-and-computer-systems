@@ -13,14 +13,14 @@ hashmap_t* hashmap_create(unsigned int _buckets){
     // Allocate memory for our hashmap
     hashmap_t* hashMap = (hashmap_t*)malloc(sizeof(hashmap_t));
     // Set the number of buckets
-	//TODO
+    hashMap->buckets = _buckets;
     // Initialize our array of lists for each bucket
-	//TODO
+    hashMap->arrayOfLists = (node_t**)malloc(sizeof(node_t*) * _buckets);
     // Setup our hashFunction to point to our
     // stringHash function.
-	//TODO
+    hashMap->hasFunction = stringHash;
     // Return the new map that we have created
-    return NULL;
+    return hashMap;
 }
 
 // Frees a hashmap
