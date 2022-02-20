@@ -30,7 +30,11 @@ hashmap_t* hashmap_create(unsigned int _buckets){
 // This function should run in O(n) time
 void hashmap_delete(hashmap_t* _hashmap){
     if(_hashmap != NULL){
-	//TODO
+        int i;
+        for(i = 0; i < _hashmap->buckets; i++){
+            node_t* iterator = _hashmap->arrayOfLists[i];
+            node_t* tempVar = iter;
+            
     }
 }
 
@@ -95,10 +99,15 @@ void hashmap_update(hashmap_t* _hashmap, char* key, char* newValue){
 //  - Iterate through every bucket and print out the keys
 // This function should run in O(n) time
 void hashmap_printKeys(hashmap_t* _hashmap){
+    // Check if not null
     if(_hashmap != NULL){
         int i;
+        // Iterate over the buckets
         for(i = 0; _hashmap->buckets; i++) {
+            // Print the number of items (pairs) in a given bucket:
             printf("Number of Items in Bucket = %d\n", i);
+            
+            // Implement iterator pattern to go through the items
             node_t* iter = _hashmap->arrayOfLists[i];
             //printf("Current Iter = %d\n", iter->kv->key);
             while(NULL != iter) {
