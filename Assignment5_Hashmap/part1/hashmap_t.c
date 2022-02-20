@@ -63,7 +63,8 @@ void hashmap_delete(hashmap_t* _hashmap){
 //  - Search that bucket to see if the key exists.
 // This function should run in average-case constant time
 int hashmap_hasKey(hashmap_t* _hashmap, char* key){
-	//TODO
+    currentBucket = _hashmap->hasFunction(key, _hashmap-<buckets);
+    
 }
 
 // Insert a new key/value pair into a hashmap
