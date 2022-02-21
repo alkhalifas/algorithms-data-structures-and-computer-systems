@@ -63,8 +63,21 @@ void hashmap_delete(hashmap_t* _hashmap){
 //  - Search that bucket to see if the key exists.
 // This function should run in average-case constant time
 int hashmap_hasKey(hashmap_t* _hashmap, char* key){
-    currentBucket = _hashmap->hasFunction(key, _hashmap-<buckets);
-    
+    // Get bucket using hashFunction
+    int myBucket;
+    myBucket = _hashmap->hashFunction(key, _hashmap->buckets);
+    // Iterator pattern to iterative over array
+    node_t* iterator = _hashmap->arrayOfLists[myBucket];
+    // Check for NULL values to avoid error
+    while(NULL != iterator) {
+        Use the strcmp to compare iterator key against KoI
+        if(strcmp(iterator->kv->key, key) == 0){
+            return 1;
+        }
+        // Go to next
+        iterator = iterator->next;
+    }
+    return 0;
 }
 
 // Insert a new key/value pair into a hashmap
