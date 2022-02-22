@@ -88,7 +88,27 @@ int hashmap_hasKey(hashmap_t* _hashmap, char* key){
 //      - You should malloc the key/value in this function
 // This function should run in average-case constant time
 void hashmap_insert(hashmap_t* _hashmap,char* key,char* value){
-    // TODO
+    // Create and allocate memory for a new pair
+    pair_t* newPair = (pair_t*)malloc(sizeof(pair_t));
+    // Assign value to the new pair
+    newPair->value = value;
+    // Assign key to the new pair
+    newPair->key = (char*)malloc((strlen(key) * sizeof(char)) + 1);
+    strcpy(newPair->key, key);
+
+    // Create new node and allocate memory using malloc
+    node_t* newNode = (node_t*)malloc(sizeof(node_t));
+    //Assign the pair, and point next to NULL for the new node
+    newNode->kv = newPair;
+    newNode->next = NULL;
+    
+    // Get bucket using hasmaps hashFunction
+    int myBucket;
+    myBucket = _hashmap->hashFunction(key, _hashmap->buckets);
+    
+    _hashmap->arrayOfLists[myBucket] = newNode;
+
+
 }
 
 // Return a value from a key 
