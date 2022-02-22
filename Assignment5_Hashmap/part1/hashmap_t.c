@@ -70,7 +70,7 @@ int hashmap_hasKey(hashmap_t* _hashmap, char* key){
     node_t* iterator = _hashmap->arrayOfLists[myBucket];
     // Check for NULL values to avoid error
     while(NULL != iterator) {
-        Use the strcmp to compare iterator key against KoI
+        // Use the strcmp to compare iterator key against KoI
         if(strcmp(iterator->kv->key, key) == 0){
             return 1;
         }
@@ -100,7 +100,24 @@ void hashmap_insert(hashmap_t* _hashmap,char* key,char* value){
 //  - Search the _hashmap's bucket for the key and return the value
 // This function should run in average-case constant time
 char* hashmap_getValue(hashmap_t* _hashmap, char* key){
-	//TODO
+    // Get buckets using hashFunction
+    int myBucket;
+    myBucket = _hashmap->hashFunction(key, _hashmap->buckets);
+    // Check if NULL to avoid error
+    if (_hashmap->arrayOfLists[myBucket] == NULL) {
+        return NULL;
+    }
+    // Implement iterator pattern to iterate over pairs
+    node_t* iterator = _hashmap->arrayOfLists[myBucket];
+    while(NULL != iterator) {
+        // Check if the key values are the same
+        if(strcmp(iterator->kv->key, key) == 0){
+            return iterator->kv->value;
+        }
+        // Increment iterator
+        iterator = iterator->next;
+    }
+    return NULL;
 }
 
 // Remove a key from a hashmap
