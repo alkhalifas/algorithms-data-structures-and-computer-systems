@@ -3,7 +3,5 @@
 
 int TopSecretGenerateRandomNumber() {
 
-
-
     return 42;
 }
