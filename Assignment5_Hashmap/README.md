@@ -6,6 +6,7 @@
 - Did you use any external resources? (Cite them below)
   - [Hashtables General Structure](https://www.youtube.com/watch?v=2Ti5yvumFTU)
   - [Strcpy() Fuction](https://www.programiz.com/c-programming/library-function/string.h/strcpy)
+  - [Hash Functions](https://www.educba.com/hashing-function-in-c/)
 - (Optional) What was your favorite part of the assignment? I really enjoyed creating a new structure (hashmap), after having briefly used one back in CS5004 and not completely understanding how it worked.
 - (Optional) How would you improve the assignment? Some more guidance on adding and removing keys would have been helpful. I got really stuck on the remove key function and spent more time than I should have there. Perhaps having a quick tutorial on some of the functionality could help in the future?
 
