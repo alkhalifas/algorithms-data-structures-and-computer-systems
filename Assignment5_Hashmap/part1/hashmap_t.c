@@ -1,6 +1,7 @@
 #include "hashmap_t.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 // Simple hash function that will put a key into a bucket
 // You should not modify this
 int stringHash(char* myKey, int numberOfBuckets){
@@ -55,7 +56,9 @@ void hashmap_delete(hashmap_t* _hashmap){
                 // Set iterator to next
                 iterator = iterator->next;
                 // Free the temporary variable (node)
-                free(tempVar); 
+                free(tempVar->kv->key);
+                free(tempVar->kv);
+                free(tempVar);
             }
         }
         // Free the arrayOfLists
@@ -183,24 +186,64 @@ char* hashmap_getValue(hashmap_t* _hashmap, char* key){
 //  - Search the _hashmap's bucket for the key and then remove it
 // This function should run in average-case constant time
 void hashmap_removeKey(hashmap_t* _hashmap, char* key){
-    // Check for key
-    if(hashmap_hasKey(_hashmap, key) == 1) {
+    // Check if NULL
+    if(_hashmap == NULL) {
         return;
     }
-  
-    // Get bucket of interest
+    
+    // Get current bucket from hashmap
     int myBucket;
     myBucket = _hashmap->hashFunction(key, _hashmap->buckets);
     
-    // Iterator pattern to go through items
-    node_t* iterator = _hashmap->arrayOfLists[myBucket];
-    
-    while(iterator != 0) {
-        if(strcmp(iterator->kv->key, key) == 0) {
-            iterator = iterator ->next;
-            free(key);
-        }
-   
+    // Check to see if the key exists in map
+    if(hashmap_hasKey(_hashmap, key)) {
+        // Check to see if the key is the first item/node in list
+        if(strcmp(_hashmap->arrayOfLists[myBucket]->kv->key, key) == 0) {
+            // Get node to remove
+            node_t* remNode = _hashmap->arrayOfLists[myBucket];
+            // Set to next in list
+            _hashmap->arrayOfLists[myBucket] = _hashmap->arrayOfLists[myBucket]->next;
+            // Free up the memory for keys, kv, and the actual node
+            free(remNode->kv->key);
+            free(remNode->kv);
+            free(remNode);
+        
+        } else {
+            // Use iterator pattern to go through nodes
+            node_t* iterator = _hashmap->arrayOfLists[myBucket]->next;
+            // Set a counter to get the location number
+            int counter;
+            counter = 0;
+            // Iterate over the list to find key
+            while(iterator != NULL) {
+                // Conditional for when key is found
+                if(strcmp(iterator->kv->key, key) == 0) {
+                    counter = counter + 1;
+                    break;
+                // Conditional to increment to next
+                } else {
+                    iterator = iterator->next;
+                    counter = counter + 1;
+                }
+            }
+            // Identify the previous node, and the next node in the 
+            // list and set accordingly
+            node_t* lastNode = _hashmap->arrayOfLists[myBucket];
+            node_t* nextNode = iterator->next;
+            
+            // Iterate over the counter to set nodes
+            int i;
+            for(i = 0; i < counter - 1; i++) {
+                lastNode = lastNode->next;
+            }
+            // Free the momory of the iterator
+            free(iterator->kv->key);
+            free(iterator->kv->value);
+            free(iterator->kv);
+            free(iterator);
+ 
+      
+        }   
     }
 }
 
@@ -245,16 +288,16 @@ void hashmap_printKeys(hashmap_t* _hashmap){
     if(_hashmap != NULL){
         int i;
         // Iterate over the buckets
-        for(i = 0; _hashmap->buckets; i++) {
+        for(i = 0; i < _hashmap->buckets; i++) {
             // Print the number of items (pairs) in a given bucket:
             printf("Number of Items in Bucket = %d\n", i);
             
             // Implement iterator pattern to go through the items
-            node_t* iter = _hashmap->arrayOfLists[i];
-            //printf("Current Iter = %d\n", iter->kv->key);
-            while(NULL != iter) {
-                printf("Current = %s ---- %s", iter->kv->key, iter->kv->value);
-                iter = iter->next;
+            node_t* iterator = _hashmap->arrayOfLists[i];
+            // Traverse using iterator, and print the results
+            while(NULL != iterator) {
+                printf("            Key = %s ------- Val = %s\n", iterator->kv->key, iterator->kv->value);
+                iterator = iterator->next;
             }
         }
     }

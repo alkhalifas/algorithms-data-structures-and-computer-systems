@@ -144,6 +144,25 @@ int unitTest7(){
     printf("\tNote--This test needs to be manually inspected\n");
     return 1;
 }
+
+int unitTest8() {
+    // Create two hashmaps
+    hashmap_t* myHashmap1 = hashmap_create(42);
+    hashmap_t* myHashmap2 = hashmap_create(55);
+    //Populate with data
+    hashmap_insert(myHashmap1, "name", "frodo");
+    hashmap_insert(myHashmap1, "type", "hobbit");
+
+    hashmap_insert(myHashmap1, "name", "legolas");
+    hashmap_insert(myHashmap1, "type", "elves");
+    hashmap_insert(myHashmap1, "weapon", "bow");
+    //Delete both
+    hashmap_delete(myHashmap1);
+    hashmap_delete(myHashmap2);
+
+    return 1;
+}
+
 // TODO: Add more tests here at your discretion
 int (*unitTests[])(int)={
     unitTest1,
@@ -153,6 +172,7 @@ int (*unitTests[])(int)={
     unitTest5,
     unitTest6,
     unitTest7,
+    unitTest8,
     NULL
 };
 
