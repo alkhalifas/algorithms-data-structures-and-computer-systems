@@ -9,7 +9,7 @@ Discuss and answer the following questions (Make sure to elaborate and justify y
 
 ## Answers:
 
-1. *edit your answer here for Part 2 question 1*
+1. *The average case for hashmaps across all operations will be generally very good. In the cases of Insert, Update, Delete, and Search, we will generally see a cost of O(1) and O(n) for most given hashmaps, depending on the hashfunction. In our particular implementation, we are using strings which changes this perspective a bit. When traversing a string, we iterate over the characters until we reach the null terminator. With that in mind, as we traverse longer strings, we will see the cost of these functions approach O(n) since it depends more on the string length.*
 2. *edit your answer here for Part 2 question 1*
 3. *edit your answer here for Part 2 question 1*
 4. *edit your answer here for Part 2 question 1*
