@@ -1,13 +1,13 @@
 # TODO Please edit the following information in your assignment
 
-- Name:
-- How many hours did it take you to complete this assignment?
-- Did you collaborate with any other students/TAs/Professors?
+- Name: Saleh Alkhalifa
+- How many hours did it take you to complete this assignment? About 8 hour or so, much longer than the other ones so far
+- Did you collaborate with any other students/TAs/Professors? Juan helped with a few items
 - Did you use any external resources? (Cite them below)
-  - tbd
-  - tbd
-- (Optional) What was your favorite part of the assignment?
-- (Optional) How would you improve the assignment?
+  - [Hashtables General Structure](https://www.youtube.com/watch?v=2Ti5yvumFTU)
+  - [Strcpy() Fuction](https://www.programiz.com/c-programming/library-function/string.h/strcpy)
+- (Optional) What was your favorite part of the assignment? I really enjoyed creating a new structure (hashmap), after having briefly used one back in CS5004 and not completely understanding how it worked.
+- (Optional) How would you improve the assignment? Some more guidance on adding and removing keys would have been helpful. I got really stuck on the remove key function and spent more time than I should have there. Perhaps having a quick tutorial on some of the functionality could help in the future?
 
 # Logistics
 
