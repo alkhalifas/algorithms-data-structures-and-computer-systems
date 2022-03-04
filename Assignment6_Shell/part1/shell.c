@@ -30,7 +30,25 @@ int cd_command(char** args) {
 }
 
 
+void loop(){
+    
+    // Set up userInput, userArgs:
+    char* userInput;
+    char* userArgs;
 
+    int progSuccess = 1;    
+
+    while(progSuccess){
+        // Print 'mini-shell' text
+        printf("mini-shell> ");
+    
+        // Parse user input / args
+        //userInput = getInput();
+        //userArgs = 
+
+    }
+        
+}
 
 
 
@@ -42,11 +60,12 @@ int main(){
   
     // Signal Handler
     signal(SIGINT, sigint_handler);
+
+    // Print CTRL+C Instruction Warning
     printf("You can only terminate by pressing CTRL+C\n");
-    while(1){
-        printf("Running forever!\n");
-	sleep(1);
-    }
-  
+    
+    // Implement loop
+    loop();
+
     return 0;
 }
