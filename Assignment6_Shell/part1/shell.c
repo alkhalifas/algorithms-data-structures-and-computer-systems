@@ -30,8 +30,6 @@ int exit_command(char** args){
 }
 
 
-
-
 // Change Directory (cd) Command
 int cd_command(char** args) {
     // Null conditional
@@ -42,6 +40,15 @@ int cd_command(char** args) {
     }
     return 1;
 }
+
+// Help (help) Command
+int help_command(char** args) {
+ 
+    // Todo: add later   
+    return 1;
+}
+
+//
 
 
 void loop(){
