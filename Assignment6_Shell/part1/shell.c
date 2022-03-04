@@ -11,6 +11,13 @@
 // Built-in functions
 char* builtInCommands[] = {"cd", "help", "exit"};
 
+// Pointers for built-in functions
+int (builtInCommandsPtrs[]) (char**) = {
+    &cd_command,
+    &help_command,
+    &exit_command
+};
+
 // Signal handler for when users click CTRL+C
 void sigint_handler(int sig){
     write(1, "\nmini-shell terminated!\n", 35);
