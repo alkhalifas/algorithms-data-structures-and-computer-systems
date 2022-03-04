@@ -17,6 +17,13 @@ void sigint_handler(int sig){
     exit(0);
 }
 
+// Exit command (exit)
+int exit_command(char** args){
+    return 0;
+}
+
+
+
 
 // Change Directory (cd) Command
 int cd_command(char** args) {
