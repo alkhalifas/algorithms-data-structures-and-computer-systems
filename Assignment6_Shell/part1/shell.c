@@ -9,18 +9,21 @@
 // variable (Specification #2)
 #define BUFFER 80
 
-// Built-in functions
-char* builtInCommands[] = {"cd", "help", "exit", "print"};
+// Built-in functions (Specification #6)
+char* builtInCommands[] = {"cd", "help", "exit", "print", "history"};
+
+// List of historical commands (Specification #9)
+char* historicalCommands[100];
 
 // Signal handler for when users click CTRL+C
 // for exiting (Specification #3)
 void sigint_handler(int sig){
-    write(1, "\nmini-shell terminated!\n", 35);
+    write(1, "\nmini-shell terminated!\n\n", 35);
     exit(0);
 }
 
 
-// Exit command (exit) per specification #6
+// Exit command (exit) to exit program (Specification #6)
 int exit_command(char** args){
     return 0;
 }
@@ -32,7 +35,7 @@ int print_command(char** userArgs) {
 }
 
 
-// Change Directory (cd) Command
+// Change Directory (cd) Command (Specification #6)
 int cd_command(char** args) {
     // Null conditional
     if (args[1] == NULL) {
@@ -43,19 +46,27 @@ int cd_command(char** args) {
     return 1;
 }
 
-// Help (help) Command
+// History (history) Command (Specification #9)
+int history_command(char** args) {
+    
+    printf("reached history!\n");
+    return 1;
+}
+
+// Help (help) Command (Specification #6)
 int help_command(char** args) {
  
     // Todo: add later   
     return 1;
 }
 
-// Pointers for built-in functions
+// Pointers for built-in functions (Specification #6)
 int (*builtInCommandsPtrs[]) (char**) = {
     &cd_command,
     &help_command,
     &exit_command,
-    &print_command
+    &print_command,
+    &history_command
 };
 
 
@@ -140,6 +151,10 @@ int runNonBuiltInCommand(char** userArgs){
     return 1;
 }
 
+void historyLogger(char* userInput, char** userArgs, int commandCount){
+    printf(">>>COMMAND COUNT: %d\n", commandCount);
+}
+
 // Infinite loop (Specification #1)
 void loop(){
     
@@ -151,6 +166,9 @@ void loop(){
     // infinite loops
     int progSuccess = 1;    
 
+    // Command Count
+    int commandCount = 0;
+
     while(progSuccess){
         // Print 'mini-shell' text
         printf("mini-shell> ");
@@ -158,7 +176,11 @@ void loop(){
         // Parse user input / args
         userInput = getUserInput();
         userArgs = parseUserInput(userInput);
-
+        
+        // History Logger
+        historyLogger(userInput, userArgs, commandCount);
+        commandCount = commandCount + 1;
+        //printf(">>>>>>> userInput: %s", userInput);
         progSuccess = runBuiltInCommand(userArgs);
 
     }       
