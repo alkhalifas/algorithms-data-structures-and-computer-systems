@@ -5,24 +5,20 @@
 #include <string.h>
 #include <signal.h>
 
-// Define the buffer
+// Define the buffer as a constant global
+// variable (Specification #2)
 #define BUFFER 80
 
 // Built-in functions
 char* builtInCommands[] = {"cd", "help", "exit"};
 
-// Pointers for built-in functions
-int (builtInCommandsPtrs[]) (char**) = {
-    &cd_command,
-    &help_command,
-    &exit_command
-};
-
 // Signal handler for when users click CTRL+C
+// for exiting (Specification #3)
 void sigint_handler(int sig){
     write(1, "\nmini-shell terminated!\n", 35);
     exit(0);
 }
+
 
 // Exit command (exit)
 int exit_command(char** args){
@@ -48,15 +44,57 @@ int help_command(char** args) {
     return 1;
 }
 
-//
+// Pointers for built-in functions
+int (*builtInCommandsPtrs[]) (char**) = {
+    &cd_command,
+    &help_command,
+    &exit_command
+};
 
 
+// Get Users Input
+char* getUserInput() {
+    // Use malloc for the current line
+    char* curLine = malloc(BUFFER * (sizeof(char)) + 1);
+
+    fgets(curLine, BUFFER, stdin);
+    
+    char *newLine = strchr(curLine, '\n');
+
+    if (newLine) {
+        *newLine = '\0';
+    }
+    return curLine;
+}
+
+
+// Parse Users Input
+char** parseUserInput(char* userInput) {
+    
+    char** userArgs = malloc(BUFFER * sizeof(char*));
+
+    char* userArg = strtok(userInput, " \t");
+
+    int i = 0;
+    while(userArg) {
+        userArgs[i] = userArg;
+        userArg = strtok(NULL, " \t");
+        i = i++;
+   }
+
+   userArgs[i] = NULL;
+   return userArgs;
+}
+
+// Infinite loop (Specification #1)
 void loop(){
     
     // Set up userInput, userArgs:
     char* userInput;
-    char* userArgs;
+    char** userArgs;
 
+    // Set conditional variable to avoid
+    // infinite loops
     int progSuccess = 1;    
 
     while(progSuccess){
@@ -64,8 +102,10 @@ void loop(){
         printf("mini-shell> ");
     
         // Parse user input / args
-        //userInput = getInput();
-        //userArgs = 
+        userInput = getUserInput();
+        userArgs = parseUserInput(userInput);
+
+        //progSuccess = eCmd(userArgs);
 
     }
         
