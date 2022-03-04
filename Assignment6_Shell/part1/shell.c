@@ -10,7 +10,7 @@
 #define BUFFER 80
 
 // Built-in functions
-char* builtInCommands[] = {"cd", "help", "exit"};
+char* builtInCommands[] = {"cd", "help", "exit", "print"};
 
 // Signal handler for when users click CTRL+C
 // for exiting (Specification #3)
@@ -20,9 +20,15 @@ void sigint_handler(int sig){
 }
 
 
-// Exit command (exit)
+// Exit command (exit) per specification #6
 int exit_command(char** args){
     return 0;
+}
+
+// Print command (p) for debugging purposes
+int print_command(char** userArgs) {
+    printf("print command!!!");
+    return 1;
 }
 
 
@@ -48,7 +54,8 @@ int help_command(char** args) {
 int (*builtInCommandsPtrs[]) (char**) = {
     &cd_command,
     &help_command,
-    &exit_command
+    &exit_command,
+    &print_command
 };
 
 
@@ -56,11 +63,14 @@ int (*builtInCommandsPtrs[]) (char**) = {
 char* getUserInput() {
     // Use malloc for the current line
     char* curLine = malloc(BUFFER * (sizeof(char)) + 1);
-
+    
+    // Reads line and stores
     fgets(curLine, BUFFER, stdin);
     
+    // Use strchr to remove newline '\n' from curLine
     char *newLine = strchr(curLine, '\n');
 
+    // Set to '\0'
     if (newLine) {
         *newLine = '\0';
     }
@@ -70,20 +80,64 @@ char* getUserInput() {
 
 // Parse Users Input
 char** parseUserInput(char* userInput) {
-    
+    // Use malloc to allocate memory for the userArgs 
     char** userArgs = malloc(BUFFER * sizeof(char*));
 
+    // Tokenize userArgs to split by space or tab
     char* userArg = strtok(userInput, " \t");
-
+    
+    // Iterate over the userArgs
     int i = 0;
     while(userArg) {
         userArgs[i] = userArg;
         userArg = strtok(NULL, " \t");
-        i = i++;
+        i++;
    }
-
+   // Set to NULL
    userArgs[i] = NULL;
    return userArgs;
+}
+
+// Run Built-in Commands (cd, exit, help, history)
+// and if command is not found, run as non-built-in
+// per Specification Requirement #6
+int runBuiltInCommand(char** userArgs){
+    // Check if there are no arguments from the user
+    if (userArgs[0] == NULL) {
+        return 1;
+    } else {
+    
+    // Iterate over and execute command with respective arguments
+    // from the user
+    int i;
+    for(i = 0; i < (sizeof(builtInCommands) / sizeof(char*)); i++) {
+        if (strcmp(userArgs[0], builtInCommands[i]) == 0) {
+            return (builtInCommandsPtrs[i])(userArgs);
+            }
+        }
+    }
+   // If its not a built in command, treat as
+   // other command and run 
+    return runNonBuiltInCommand(userArgs);
+}
+
+// Run Non-Built-in Commands
+int runNonBuiltInCommand(char** userArgs){
+    // Set fork() 
+    pid_t pid = fork();
+    
+    // Conditional for false commands
+    if (pid == 0) {
+        if (execvp(userArgs[0], userArgs) == -1) {
+            printf("Command not found - Did you mean something else?\n");
+        }
+        // Exit
+        exit(1);
+    // Else wait
+    } else {
+        wait(NULL);
+    }
+    return 1;
 }
 
 // Infinite loop (Specification #1)
@@ -105,10 +159,9 @@ void loop(){
         userInput = getUserInput();
         userArgs = parseUserInput(userInput);
 
-        //progSuccess = eCmd(userArgs);
+        progSuccess = runBuiltInCommand(userArgs);
 
-    }
-        
+    }       
 }
 
 
