@@ -219,24 +219,27 @@ void loop(){
     // Command Count
     int commandCount = 0;
 
-   
-
+    // Keep running while working
     while(progSuccess){
         // Print 'mini-shell' text
         printf("mini-shell> ");
     
-        // Parse user input / args
+        // Parse user input
         userInput = getUserInput();
         
-        // History Logger
+        // History Logger for commands
         historyLogger(userInput, globalCommandCounter);
         globalCommandCounter = globalCommandCounter + 1;
         
+        // Parse user Args
         userArgs = parseUserInput(userInput);
         
-        //printf(">>>>>>> userInput: %s", userInput);
+        // Run with success
         progSuccess = runBuiltInCommand(userArgs);
 
+        // Free memory
+        free(userInput);
+        free(userArgs);
     }       
 }
 
