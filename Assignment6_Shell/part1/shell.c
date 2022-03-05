@@ -56,7 +56,13 @@ int history_command(char** args) {
 // Help (help) Command (Specification #6)
 int help_command(char** args) {
  
-    // Todo: add later   
+    printf(" Help: Some commands you can use:\n");
+    printf("     cd      -    to change directories \n");
+    printf("     help    -    to see some sample commands \n");
+    printf("     exit    -    to exit the mini-shell program \n");
+    printf("     history -    to see your previous commands \n");
+    printf("     joke    -    to see a random joke! \n");
+
     return 1;
 }
 
@@ -197,9 +203,12 @@ int main(){
     // Signal Handler
     signal(SIGINT, sigint_handler);
 
-    // Print CTRL+C Instruction Warning
-    printf("You can only terminate by pressing CTRL+C\n");
-    
+    // Print Welcome and CTRL+C Instruction Warning
+    printf("#########################################################\n");
+    printf("#####            Welcome to Mini Shell!            ######\n");
+    printf("#####  You can only terminate by pressing CTRL+C   ######\n");
+    printf("#########################################################\n");
+
     // Implement loop
     loop();
 
