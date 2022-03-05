@@ -13,7 +13,13 @@
 char* builtInCommands[] = {"cd", "help", "exit", "print", "history"};
 
 // List of historical commands (Specification #9)
-char* historicalCommands[100];
+char historicalCommands[100][80];
+
+// Struct for the linked list
+//struct Node {
+//    char* command;
+//    struct Node* next;
+//}
 
 // Signal handler for when users click CTRL+C
 // for exiting (Specification #3)
@@ -87,6 +93,8 @@ char* getUserInput() {
     // Use strchr to remove newline '\n' from curLine
     char *newLine = strchr(curLine, '\n');
 
+    //printf("USER INPUT>>> %s\n", curLine);
+
     // Set to '\0'
     if (newLine) {
         *newLine = '\0';
@@ -157,8 +165,14 @@ int runNonBuiltInCommand(char** userArgs){
     return 1;
 }
 
-void historyLogger(char* userInput, char** userArgs, int commandCount){
-    printf(">>>COMMAND COUNT: %d\n", commandCount);
+
+void historyLogger(char* userInput, int commandCount){
+    
+    strcpy(historicalCommands[commandCount], userInput);
+    printf(">>> COMMAND COUNT : %d\n", commandCount);
+    printf(">>> USER INPUT: %s\n", userInput);
+    printf(">>> COMMAND LISTED: %s\n", historicalCommands[commandCount]);
+
 }
 
 // Infinite loop (Specification #1)
@@ -175,17 +189,21 @@ void loop(){
     // Command Count
     int commandCount = 0;
 
+   
+
     while(progSuccess){
         // Print 'mini-shell' text
         printf("mini-shell> ");
     
         // Parse user input / args
         userInput = getUserInput();
-        userArgs = parseUserInput(userInput);
         
         // History Logger
-        historyLogger(userInput, userArgs, commandCount);
+        historyLogger(userInput, commandCount);
         commandCount = commandCount + 1;
+        
+        userArgs = parseUserInput(userInput);
+        
         //printf(">>>>>>> userInput: %s", userInput);
         progSuccess = runBuiltInCommand(userArgs);
 
