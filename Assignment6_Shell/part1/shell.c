@@ -4,19 +4,34 @@
 #include <stdlib.h>
 #include <string.h>
 #include <signal.h>
+#include <time.h>
 
 // Define the buffer as a constant global
 // variable (Specification #2)
 #define BUFFER 80
 
 // Built-in functions (Specification #6)
-char* builtInCommands[] = {"cd", "help", "exit", "print", "history"};
+char* builtInCommands[] = {"cd", "help", "exit", "print", "history", "joke"};
 
 
-// List of historical commands (Specification #9)
+// List of last 100 historical commands (Specification #9)
 char historicalCommands[100][80];
 int globalCommandCounter = 0;
 
+// Array of jokes
+char* jokeArray[] = {
+    "99 little bugs in my code, 99 little bugs, take one down, patch it around, 2200 bugs in my code",
+    "Eight bytes walk into a bar. The bartender asks 'what can i get you?' and the bytes reply 'can you make us a double?'",
+    "How many programmers does it take to change a light bulb? None, thats a hardware problem",
+    "Debugging: Its being the detective in a crime movie where you are also the murderer",
+    "What is a programmers favorite type of coffee? Java",
+    "Big tech is the only industry where the interview is significantly harder than the job itself",
+    "Roses are red, violets are blue, unexpecteed '{' on line 32",
+    "Sometimes I wish my life was a GitHub repo where I can revert to the last stable version",
+    "Me on monday morning: no email has ever found me well!",
+    "I hate programming, I hate programming, I hate programming, OMG it works!, I love programming!",
+    "Teacher: How much is 0.1 apples + 0.2 apples? JavaScript: 0.300000000000000004"
+};
 
 // Signal handler for when users click CTRL+C
 // for exiting (Specification #3)
@@ -49,7 +64,8 @@ int cd_command(char** args) {
     return 1;
 }
 
-// History (history) Command (Specification #9)
+// History (history) Command (Specification #9) that prints historical commands
+// chronologically, the most recent command at the end of the output
 int history_command(char** args) {
 
     printf("My Command History!\n");
@@ -58,6 +74,15 @@ int history_command(char** args) {
     for(i = 0; i < globalCommandCounter; i++){
             printf("Command:   %s\n", historicalCommands[i]);
     }
+    return 1;
+}
+
+int joke_command(char** userArgs) {
+    srand(time(NULL));
+    int random = rand() %10 + 1;
+
+    //printf("random number %d", random);
+    printf("%s\n", jokeArray[random]);
     return 1;
 }
 
@@ -72,6 +97,7 @@ int help_command(char** args) {
     printf("     joke    -    to see a random joke! \n");
 
     return 1;
+
 }
 
 // Pointers for built-in functions (Specification #6)
@@ -80,7 +106,8 @@ int (*builtInCommandsPtrs[]) (char**) = {
     &help_command,
     &exit_command,
     &print_command,
-    &history_command
+    &history_command,
+    &joke_command
 };
 
 
@@ -167,13 +194,14 @@ int runNonBuiltInCommand(char** userArgs){
     return 1;
 }
 
-
+// A history logger that logs a history of the users inputs in a
+// chronological fashion (Specification #9)
 void historyLogger(char* userInput, int commandCount){
     
     strcpy(historicalCommands[commandCount], userInput);
-    printf(">>> COMMAND COUNT : %d\n", commandCount);
-    printf(">>> USER INPUT: %s\n", userInput);
-    printf(">>> COMMAND LISTED: %s\n", historicalCommands[commandCount]);
+    //printf(">>> COMMAND COUNT : %d\n", commandCount);
+    //printf(">>> USER INPUT: %s\n", userInput);
+    //printf(">>> COMMAND LISTED: %s\n", historicalCommands[commandCount]);
 
 }
 
@@ -224,10 +252,10 @@ int main(){
     signal(SIGINT, sigint_handler);
 
     // Print Welcome and CTRL+C Instruction Warning
-    printf("#########################################################\n");
-    printf("#####            Welcome to Mini Shell!            ######\n");
-    printf("#####  You can only terminate by pressing CTRL+C   ######\n");
-    printf("#########################################################\n");
+    printf("##########################################################\n");
+    printf("######            Welcome to Mini Shell!            ######\n");
+    printf("######  You can only terminate by pressing CTRL+C   ######\n");
+    printf("##########################################################\n");
 
     // Implement loop
     loop();
