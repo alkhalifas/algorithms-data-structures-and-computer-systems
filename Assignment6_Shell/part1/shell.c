@@ -123,13 +123,15 @@ char* getUserInput() {
     // Use strchr to remove newline '\n' from curLine
     char *newLine = strchr(curLine, '\n');
 
-    //printf("USER INPUT>>> %s\n", curLine);
-
     // Set to '\0'
     if (newLine) {
         *newLine = '\0';
     }
     return curLine;
+   
+   // Free curLine
+   // free(curLine);
+   // free(newLine);
 }
 
 
@@ -151,7 +153,18 @@ char** parseUserInput(char* userInput) {
    // Set to NULL
    userArgs[i] = NULL;
    return userArgs;
+
+   // Free userArgs
+   // free(userArgs);
+   // free(userArg);
 }
+
+int pipeFinder(char** userArgs) {
+
+    return 1;
+}
+
+
 
 // Run Built-in Commands (cd, exit, help, history)
 // and if command is not found, run as non-built-in
@@ -235,12 +248,16 @@ void loop(){
         // Parse user Args
         userArgs = parseUserInput(userInput);
         
+        // Free Memory
+        free(userInput);
+        free(userArgs);
+
         // Run with success
         progSuccess = runBuiltInCommand(userArgs);
 
         // Free memory
-        free(userInput);
-        free(userArgs);
+        // free(userInput);
+        // free(userArgs);
     }       
 }
 
