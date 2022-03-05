@@ -54,8 +54,15 @@ int cd_command(char** args) {
 
 // History (history) Command (Specification #9)
 int history_command(char** args) {
-    
-    printf("reached history!\n");
+
+    printf("My Command History!\n");
+
+    int i;
+    for(i = 0; i < 100; i++){
+
+    printf("Command:   %s\n", historicalCommands[i]);
+
+    }
     return 1;
 }
 
