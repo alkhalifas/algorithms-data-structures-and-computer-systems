@@ -1,13 +1,14 @@
 # TODO Please edit the following information in your assignment
 
-- Name:
-- How many hours did it take you to complete this assignment?
-- Did you collaborate with any other students/TAs/Professors?
+- Name: Saleh ALkhalifa
+- How many hours did it take you to complete this assignment? Quite a few, I had to spread this across many days (more than 10-12 hours)
+- Did you collaborate with any other students/TAs/Professors? Juan answered a few questions on Piazza
 - Did you use any external resources? (Cite them below)
-  - tbd
-  - tbd
-- (Optional) What was your favorite part of the assignment?
-- (Optional) How would you improve the assignment?
+  - [Shells in C](https://brennan.io/2015/01/16/write-a-shell-in-c/)
+  - [Reversing a linked list](https://www.geeksforgeeks.org/reverse-a-linked-list/)
+  - [Fork in C Language](https://www.section.io/engineering-education/fork-in-c-programming-language/)
+- (Optional) What was your favorite part of the assignment? I really enjoyed creating a shell in general! It was alot of fun.
+- (Optional) How would you improve the assignment? More guidance on using pipe would be appreciated. I got very lost and confused, and at this point I am OK with losing the 10% because I have no idea why its not working and I would rather spend my time studying for the midterm.
 
 # Logistics
 
