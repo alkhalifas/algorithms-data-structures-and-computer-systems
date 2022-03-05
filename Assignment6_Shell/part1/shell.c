@@ -258,8 +258,8 @@ int main(){
     // Print Welcome and CTRL+C Instruction Warning
     printf("##########################################################\n");
     printf("######            Welcome to Mini Shell!            ######\n");
-    printf("######    You only terminate by pressing CTRL+C     ######\n");
-    printf("######     See a list of commands using 'help'      ######\n");
+    printf("######     You can terminate by pressing CTRL+C     ######\n");
+    printf("######      See list of commands using 'help'       ######\n");
     printf("##########################################################\n");
 
     // Implement loop
