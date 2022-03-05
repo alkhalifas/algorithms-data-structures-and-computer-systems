@@ -67,9 +67,10 @@ int cd_command(char** args) {
 // History (history) Command (Specification #9) that prints historical commands
 // chronologically, the most recent command at the end of the output
 int history_command(char** args) {
-
+    // Greet user
     printf("My Command History!\n");
-
+    
+    // Iterate over the list of commands, up until the last one
     int i;
     for(i = 0; i < globalCommandCounter; i++){
             printf("Command:   %s\n", historicalCommands[i]);
@@ -257,7 +258,8 @@ int main(){
     // Print Welcome and CTRL+C Instruction Warning
     printf("##########################################################\n");
     printf("######            Welcome to Mini Shell!            ######\n");
-    printf("######  You can only terminate by pressing CTRL+C   ######\n");
+    printf("######    You only terminate by pressing CTRL+C     ######\n");
+    printf("######     See a list of commands using 'help'      ######\n");
     printf("##########################################################\n");
 
     // Implement loop
