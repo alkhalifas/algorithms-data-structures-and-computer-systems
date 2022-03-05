@@ -102,19 +102,21 @@ At a high level, implementing mini-shell takes the following components:
 -----------------------------------------------------
 NAME: 
 
-*edit me*
+*history*
+
+I also added another fun command called *joke* which prints a random computer science joke for you.
 
 SYNOPSIS: 
 
-*edit me and add in a short description of the command and its usage*
+*History allows a user to see the previous list of commands they executed. Commands are loggeed using the historyLogger() function which adds them to a list.*
 
 DESCRIPTION:
 
-*Write a longer description of what he command does*
+*When a user enters the word 'history', the shell will print a list of all commands the user has entered so far when using the shell. The user will be able to see previously entered commands such as "ls" or "cd" along with any arguments that were entered.*
 
 NOTES:
 
-*Enter two or three sentences (minimum) in how you implemented the built-in command.*
+*I was planning on implmenting a linked list to parse the historical commands chronologically and inverse chronologically, but with the time that I had I ended up using an array instead. Bash saves a users last 1000 commands, depending the selected settings. For this simpler implementation, the list is configured to save the last 100 commands. Anytime a command, or any other user input is entered into the shell, it is logged using the historyLogger) function which adds it to the array. The placement within the array is configured such that a counter is used to monitor the index, and add the command accordingly.*
 
 -----------------------------------------------------
 
