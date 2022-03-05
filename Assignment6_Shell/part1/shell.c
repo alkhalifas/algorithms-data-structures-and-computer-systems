@@ -12,14 +12,11 @@
 // Built-in functions (Specification #6)
 char* builtInCommands[] = {"cd", "help", "exit", "print", "history"};
 
+
 // List of historical commands (Specification #9)
 char historicalCommands[100][80];
+int globalCommandCounter = 0;
 
-// Struct for the linked list
-//struct Node {
-//    char* command;
-//    struct Node* next;
-//}
 
 // Signal handler for when users click CTRL+C
 // for exiting (Specification #3)
@@ -58,10 +55,8 @@ int history_command(char** args) {
     printf("My Command History!\n");
 
     int i;
-    for(i = 0; i < 100; i++){
-
-    printf("Command:   %s\n", historicalCommands[i]);
-
+    for(i = 0; i < globalCommandCounter; i++){
+            printf("Command:   %s\n", historicalCommands[i]);
     }
     return 1;
 }
@@ -206,8 +201,8 @@ void loop(){
         userInput = getUserInput();
         
         // History Logger
-        historyLogger(userInput, commandCount);
-        commandCount = commandCount + 1;
+        historyLogger(userInput, globalCommandCounter);
+        globalCommandCounter = globalCommandCounter + 1;
         
         userArgs = parseUserInput(userInput);
         
