@@ -249,15 +249,15 @@ void loop(){
         userArgs = parseUserInput(userInput);
         
         // Free Memory
-        free(userInput);
-        free(userArgs);
+        // free(userInput);
+        // free(userArgs);
 
         // Run with success
         progSuccess = runBuiltInCommand(userArgs);
 
         // Free memory
-        // free(userInput);
-        // free(userArgs);
+        free(userInput);
+        free(userArgs);
     }       
 }
 
