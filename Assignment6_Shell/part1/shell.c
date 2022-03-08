@@ -159,9 +159,32 @@ char** parseUserInput(char* userInput) {
    // free(userArg);
 }
 
+// Parse arguments and identofy if there are
+// pipes, return index (Specification #5)
 int pipeFinder(char** userArgs) {
+    
+    int i;
+    // Iterate over the userArgs, search
+    // for the pipe '|' symbol
+    while(userArgs[i] != NULL) {
+        if (strcmp(userArgs[i], "|") == 0) {
+           // Return the number of pipes we found
+           printf("Found a %d pipes.\n", i);
+           return i;
+        }
+        i++;
+    }
+    return -1;
+}
 
-    return 1;
+// Isolate the 'Before' part of the pipe
+char** beforeArgPipe(char** userArgs) {
+
+}
+
+// Isoalte the 'After' part of the pipe
+char** afterArgPipe(char** userArgs) {
+
 }
 
 
@@ -174,7 +197,12 @@ int runBuiltInCommand(char** userArgs){
     if (userArgs[0] == NULL) {
         return 1;
     } else {
-    
+   
+    // Check for pipes:
+    int numPipes;
+    numPipes = pipeFinder(userArgs);
+
+ 
     // Iterate over and execute command with respective arguments
     // from the user
     int i;
