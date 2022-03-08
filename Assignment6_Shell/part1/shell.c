@@ -169,7 +169,7 @@ int pipeFinder(char** userArgs) {
     while(userArgs[i] != NULL) {
         if (strcmp(userArgs[i], "|") == 0) {
            // Return the number of pipes we found
-           printf("Found a %d pipes.\n", i);
+           //printf("Found a %d pipes.\n", i);
            return i;
         }
         i++;
@@ -177,12 +177,14 @@ int pipeFinder(char** userArgs) {
     return -1;
 }
 
-// Isolate the 'Before' part of the pipe
+// Isolate the 'Before' part of the pipe, and get
+// a list of the arguments
 char** beforeArgPipe(char** userArgs) {
 
 }
 
-// Isoalte the 'After' part of the pipe
+// Isolate the 'After' part of the pipe and get
+// a list of the arguments
 char** afterArgPipe(char** userArgs) {
 
 }
