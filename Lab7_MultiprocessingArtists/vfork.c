@@ -62,6 +62,10 @@ void savePPM(){
 // Main call that executes the program
 int main() {
 
+    // Malloc integers for Task 3
+    int* integers = malloc(sizeof(int)*8000);
+
+
     // Select number of artists, which correspond to
     // child processes in the program
     int numberOfArtists = 64;
@@ -89,9 +93,12 @@ int main() {
         printf("Child process created: %d\n", pid);
     }
     printf("Masterpiece(vfork.ppm) is being assembled\n");
-    
+     
+    // Save the file as a ppm file   
     savePPM();
 
+    // Free the allocated memmory
+    free(integers);
     return 0;
 }
             
