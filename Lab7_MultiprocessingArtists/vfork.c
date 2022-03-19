@@ -25,10 +25,12 @@ void paint(int workID) {
         //printf("colorInfo %d ->> %d\n", i, rand() % 255 + 1);
         //printf("--------------------------\n");
         
-        // Assign a random number
+        // Check if even or odd
         if(workID % 2 == 0){
+            // If Even, color randomly
             colors[workID][i] = rand() % 255 + 1;
         } else {
+            // If Odd, color black
             colors[workID][i] = workID;
         }
     }
