@@ -1,13 +1,13 @@
 # TODO Please edit the following information in your assignment
 
-- Name:
-- How many hours did it take you to complete this assignment?
-- Did you collaborate with any other students/TAs/Professors?
+- Name: Saleh Alkhalifa
+- How many hours did it take you to complete this assignment? It took me longer to read and understand the code, than the actual code itself. About 2 hours of coding / trial and error?
+- Did you collaborate with any other students/TAs/Professors? No
 - Did you use any external resources? (Cite them below)
-  - tbd
-  - tbd
-- (Optional) What was your favorite part of the assignment?
-- (Optional) How would you improve the assignment?
+  - [trylock](https://stackoverflow.com/questions/9258308/how-to-use-pthread-mutex-trylock)
+  - [ mutex & trylock](https://code-vault.net/course/07hdekibo8:1603733520293/lesson/18ec1942c2da46840693efe9b51fdccc)
+- (Optional) What was your favorite part of the assignment? I liked being able to see the little artists draw! It was adorable!
+- (Optional) How would you improve the assignment? It would be great to conver the process of drawing into a gif, perhaps by capturing each step as an output and compiling them together to create an animation.
 
 # Logistics
 
