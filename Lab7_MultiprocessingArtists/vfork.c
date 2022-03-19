@@ -25,11 +25,16 @@ void paint(int workID) {
         //printf("colorInfo %d ->> %d\n", i, rand() % 255 + 1);
         //printf("--------------------------\n");
         
-        // Assign a random number 
-        colors[workID][i] = rand() % 255 + 1;
+        // Assign a random number
+        if(workID % 2 == 0){
+            colors[workID][i] = rand() % 255 + 1;
+        } else {
+            colors[workID][i] = workID;
+        }
     }
 }
 
+// Saves the PPM file
 void savePPM(){
 
     FILE *fp;
@@ -52,6 +57,7 @@ void savePPM(){
 
 }
 
+// Main call that executes the program
 int main() {
 
     // Select number of artists, which correspond to
