@@ -30,4 +30,13 @@ int main() {
         pid = vfork()
 
         if(pid == 0) {
+            paint(i);
+            exit(0)
+        }
+        printf("Child process created: %d\n", pid);
+    }
+    printf("Masterpiece(vfork.ppm) is being assembled\n");
+    
+    return 0;
+}
             
