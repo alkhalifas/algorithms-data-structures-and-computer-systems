@@ -101,8 +101,8 @@ void* paint(void* args){
     artist_t* painter = (artist_t*)args;
 
     // Our artist will now attempt to paint 5000 strokes of paint
-	// on our shared canvas
-	for(int i =0; i < 5000; ++i){
+    // on our shared canvas
+    for(int i =0; i < 5000; ++i){
 
         // Store our initial position
         int currentX = painter->x;
@@ -122,6 +122,10 @@ void* paint(void* args){
         // at first glance this seems okay, but convince yourself
         // we can still have data races.
         // I suggest investigating a 'trylock'
+
+	if(pthread_mutex_trylock(&canvas[painter->x][painter->y].lock) == 0) {
+		printf("Accessed lock: %lu\n", pthread_self());
+
  
         // Try to paint
         // paint the pixel if it is white.
@@ -131,6 +135,7 @@ void* paint(void* args){
                 canvas[painter->x][painter->y].r = painter->r;
                 canvas[painter->x][painter->y].g = painter->g;
                 canvas[painter->x][painter->y].b = painter->b;
+	}
         }else{
         // If we cannot paint the pixel, then we backtrack
         // to a previous pixel that we own.
