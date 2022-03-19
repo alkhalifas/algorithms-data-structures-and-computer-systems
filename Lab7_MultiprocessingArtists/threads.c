@@ -35,8 +35,22 @@ void *thread(void *vargp) {
 // Main Function
 int main() {
     pthread_t tids[NTHREADS];
-    printf("Counter starts at: %d\n", counter);
+    printf("Start Counter: %d\n", counter);
+    
+    
+    int i;
+    for(i = 0; i < NTHREADS; i++) {
+        pthread_t thread;
+        tids[i] = thread;
+        pthread_create(&thread, NULL, thread, NULL);
+    }
 
+    int j;
+    for (j = 0; j < NTHREADS; j++) {
+        pthread_join(tids[j], NULL);
+    }
+
+    printf("Final counter: %d\n", counter);
 
     return 0;
 }
