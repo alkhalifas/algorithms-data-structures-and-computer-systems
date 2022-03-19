@@ -232,7 +232,11 @@ int main(){
 	pthread_join(Leonardo_tid, NULL);		   
 
     // TODO: Add the join the 50 other artists threads here	
-    // for (...)
+    
+    int i;
+    for(i = 0; i < rookieArtists; i++) {
+        pthread_join(moreArtists_tid[i], NULL);
+    }
 
     // Save our canvas at the end of the painting session
 	outputCanvas();
