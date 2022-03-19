@@ -118,7 +118,7 @@ void* paint(void* args){
         if(painter->y < 0) { painter->y = 0; }
         if(painter->y > CANVAS_HEIGHT-1) { painter->y = CANVAS_HEIGHT-1; }
    
-        // TODO: Implement some locking mechanism
+        // TODO: Implement some locking mechanismi // DONE
         // at first glance this seems okay, but convince yourself
         // we can still have data races.
         // I suggest investigating a 'trylock'
@@ -198,7 +198,7 @@ int main(){
 	pthread_create(&Raphael_tid,NULL,(void*)paint,Raphael);
 	pthread_create(&Leonardo_tid,NULL,(void*)paint,Leonardo);
 
-    // TODO: Add 50 more artists 
+    // TODO: Add 50 more artists // DONE
     int rookieArtists = 50;
     pthread_t moreArtists_tid[rookieArtists];
     artist_t* moreArtists[rookieArtists];
@@ -221,6 +221,7 @@ int main(){
         moreArtists[i] = newArtist;
         moreArtists_tid[i] = newArtist_tid;
 
+        // Create the thread
         pthread_create(&moreArtists_tid[i], NULL, (void*)paint, newArtist);
     }
 
@@ -231,7 +232,7 @@ int main(){
 	pthread_join(Raphael_tid, NULL);		   
 	pthread_join(Leonardo_tid, NULL);		   
 
-    // TODO: Add the join the 50 other artists threads here	
+    // TODO: Add the join the 50 other artists threads here // DONE	
     
     int i;
     for(i = 0; i < rookieArtists; i++) {
@@ -247,7 +248,7 @@ int main(){
     free(Raphael);
     free(Leonardo);
 
-    // TODO: Free any other memory you can think of
+    // TODO: Free any other memory you can think of // DONE
     // Addressing the missing 1000 bytes of memory from Valgrind
 
     for(i = 0 ; i < rookieArtists; i++){
