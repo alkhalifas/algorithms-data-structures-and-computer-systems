@@ -12,8 +12,25 @@ pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
 char COLORS[64][64*3];
 
 // Function to save image
+// taken directly from lab documentation
 void savePPM() {
+    FILE *fp;
+    fp = fopen("threads.ppm", "w+");
+    fputs("P3\n", fp);
+    fputs("64 64\n", fp);
+    fputs("255\n", fp);
 
+    int i;
+    int j;
+
+    for(i = 0; i < 64; i++) {
+        for(j = 0; j < 64*3; j++) {
+            fprintf(fp, "%d", COLORS[i][j]);
+            fputs(" ", fp);
+        }
+    fputs("\n", fp);
+    }
+    fclose(fp);
 }
 
 // Paint function
@@ -23,7 +40,13 @@ void paint(int workID) {
     int i;
     // Iterate and assign value
     for(i = 0; i < 64*3; i++){
-        COLORS[workID][i] = rand() % 256;
+        // Paint random colors if even
+        if(workID % 2 == 0) {
+            COLORS[workID][i] = rand() % 256;
+        } else {
+            // Paint black if ODD
+            COLORS[workID][i] = workID;
+        }
     }
 }
 
@@ -54,7 +77,7 @@ int main() {
     // Iterate and create threads
     for(i = 0; i < NTHREADS; i++) {
         pthread_create(&tids[i], NULL, thread, NULL);
-        printf("Created thread %d --> %d\n", i, tids[i]);
+        //printf("Created thread %d --> %d\n", i, tids[i]);
         // Paint the image
         paint(i);
     }
@@ -63,10 +86,11 @@ int main() {
     
     // Iterate and join threads
     for (i = 0; i < NTHREADS; i++) {
-        printf("Joined thread %d --> %d\n", i, tids[i]);
+        //printf("Joined thread %d --> %d\n", i, tids[i]);
         pthread_join(tids[i], NULL);
     }
-
+    // Save Painting
+    savePPM();
     printf("Final counter: %d\n", counter);
 
     return 0;
