@@ -20,11 +20,17 @@ void paint(int workID) {
     // Iterate over the columns, assign value
     int i;
     for(i = 0; i < 64*3; i++){
-        colors[workID][i] = workID;
+
+        //printf("--------------------------\n");
+        //printf("colorInfo %d ->> %d\n", i, rand() % 255 + 1);
+        //printf("--------------------------\n");
+        
+        // Assign a random number 
+        colors[workID][i] = rand() % 255 + 1;
     }
 }
 
-void savePPM(int colors){
+void savePPM(){
 
     FILE *fp;
     fp = fopen("vfork.ppm", "w+");
@@ -37,7 +43,7 @@ void savePPM(int colors){
 
     for(i = 0; i < 64; i++){
         for(j = 0; j < 64*3; j++){
-            pfintf(fp, "%d", colors[i][j]);
+            fprintf(fp, "%d", colors[i][j]);
             fputs(" ", fp);
         }
         fputs("\n", fp);
@@ -50,7 +56,7 @@ int main() {
 
     // Select number of artists, which correspond to
     // child processes in the program
-    int numberOfArtists = 8;
+    int numberOfArtists = 64;
  
     // Variable to store the process IDs
     pid_t pid;
@@ -64,7 +70,7 @@ int main() {
         pid = vfork();
         
         // Print PID
-        printf("PID is: %d\n", pid);
+        //printf("PID is: %d\n", pid);
         
         // Call paint then exit
         if(pid == 0) {
@@ -76,7 +82,7 @@ int main() {
     }
     printf("Masterpiece(vfork.ppm) is being assembled\n");
     
-    save(colors);
+    savePPM();
 
     return 0;
 }
