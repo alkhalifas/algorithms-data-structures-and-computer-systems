@@ -199,10 +199,30 @@ int main(){
 	pthread_create(&Leonardo_tid,NULL,(void*)paint,Leonardo);
 
     // TODO: Add 50 more artists 
-    // int rookieArtists = 50;
-    // pthread_t moreArtists_tid[rookieArtists];
-	// artist_t* moreArtists = malloc(..);
-    // for(int i =0; i < rookieArtists; ++i){
+    int rookieArtists = 50;
+    pthread_t moreArtists_tid[rookieArtists];
+    artist_t* moreArtists[rookieArtists];
+
+    for(int i =0; i < rookieArtists; ++i){
+        // Create new Artist
+        artist_t* newArtist = malloc(sizeof(artist_t));
+        // Assign Coordinates
+        newArtist->x = rand() & CANVAS_WIDTH - 1;
+        newArtist->y = rand() % CANVAS_WIDTH - 1;
+
+        // Assign Color
+        newArtist->r = rand() % 255;
+        newArtist->g = rand() % 255;
+        newArtist->b = rand() % 255;
+        
+        // Manage tid
+        pthread_t newArtist_tid;
+        
+        moreArtists[i] = newArtist;
+        moreArtists_tid[i] = newArtist_tid;
+
+        pthread_create(&moreArtists_tid[i], NULL, (void*)paint, newArtist);
+    }
 
 	// Join each with the main thread.  
 	// Do you think our ordering of launching each thread matters?
