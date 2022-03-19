@@ -248,6 +248,11 @@ int main(){
     free(Leonardo);
 
     // TODO: Free any other memory you can think of
+    // Addressing the missing 1000 bytes of memory from Valgrind
+
+    for(i = 0 ; i < rookieArtists; i++){
+        free(moreArtists[i]);
+    }
 
 	return 0;
 }

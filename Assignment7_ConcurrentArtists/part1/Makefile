@@ -3,6 +3,6 @@
 # https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html
 
 all : painters.c 
-	gcc -std=c11 -o painters painters.c -lpthread
+	gcc -std=c11 -g -o painters painters.c -lpthread
 clean :
 	rm painters
