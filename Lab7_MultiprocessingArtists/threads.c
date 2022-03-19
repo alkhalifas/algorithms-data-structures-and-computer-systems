@@ -24,8 +24,10 @@ void *thread(void *vargp) {
     counter = counter + 1;
 
     int i;
-    // Iterate over COLORS and set
-    
+    // Iterate over COLORS and set counter
+    for(i = 0; i < 64*3; i++) {
+        COLORS[counter][i] = counter;
+    } 
 
     // Unlock
     pthread_mutex_unlock(&mutex1);
@@ -40,9 +42,9 @@ int main() {
     
     int i;
     for(i = 0; i < NTHREADS; i++) {
-        pthread_t thread;
-        tids[i] = thread;
-        pthread_create(&thread, NULL, thread, NULL);
+        pthread_t THREAD;
+        tids[i] = THREAD;
+        pthread_create(&THREAD, NULL, thread, NULL);
     }
 
     int j;
