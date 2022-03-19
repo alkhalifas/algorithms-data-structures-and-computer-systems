@@ -161,7 +161,7 @@ This means you need to enforce some locking mechanism.
 
 **Discuss(in a few sentences)** how starvation may occur in the above program, and how you would possibly fix it? (You may fix it in your implementation if you like--the art may become more beautiful!)
 
-*edit and add your response here*
+*First, we can define starvation as the process of events stopping or preventing other processes (or sub-processes) from progressing or moving forward. In this case of our canvas, one possible scenario are multiple artists trying to paint in the same cell, and thus getting stuck. Threads are a great approach to addressing concurrency issues such as these, in addition, another alternative could be some logical flow that if the cell cannot be accessed another adjacent cell could be used instead.*
 
 
 # Resources to help
