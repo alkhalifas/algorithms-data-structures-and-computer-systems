@@ -24,23 +24,28 @@ void swap(int* a, int* b){
 //          (2) 'size' tells us how big the array of data is we are sorting.
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
-    // TODO: Implement insertion sort
-    
+    // Instantiate current and next variables 
     int current;
     int next;
  
+    // Iterate over elements in array
     for(current = 0; current < size - 1; current++) {
+        // Get the temporary element next in line
         int tmp = array[current+1];
 
         next = 0;
 
         int i;
+        // Iterate over the next and compare the
+        // temporary variable to next
         for(i = current; i >= 0; i--) {
             next = array[i];
             if (tmp >= next) {
                 break;
+            // If temp is less than next, then
+            // go ahead and swap
             } else if (tmp < next){
-                swap(&array[i], &array[+1]);
+                swap(&array[i], &array[i+1]);
             }
         }
     }
