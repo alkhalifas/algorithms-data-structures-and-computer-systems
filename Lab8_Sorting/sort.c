@@ -19,7 +19,6 @@ int findMinimum(int* array, int start, int stop){
         if(array[i] < array[minIdx]) {
             minIdx = i;
         }
-        i = i + 1;
     }
 
  
