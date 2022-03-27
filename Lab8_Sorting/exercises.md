@@ -9,7 +9,7 @@
 
 ## Answers:
 
-1. *The Insertion Sort algorithm perfoms are $O(n^2)$ $e^{i \pi} = -1$ complexity for both average and worst case scenarios because it builds the final sorted array one item at a time. This algorithm is relatively less efficient or larger lists relative to some of its other counterparts such as Quick Sort. *
+1. The Insertion Sort algorithm perfoms are $O(n^2)$ complexity for both average and worst case scenarios because it builds the final sorted array one item at a time. This algorithm is relatively less efficient or larger lists relative to some of its other counterparts such as Quick Sort. 
 2. *edit your answer here for question 2*
 3. *edit your answer here for question 3*
 4. *edit your answer here for question 4*
