@@ -11,29 +11,25 @@
 //        stop - End of where to search. Typically the 'size' of the array.
 // Output: The index in an array of the minimum value between a range [start,stop]
 int findMinimum(int* array, int start, int stop){
-    // TODO: Iterate through a subset of the array and find the minimum value.
-    //       Return the index of that minimum value.
 
     int minIdx = start;
     int i;
 
-    for(i = start; i < stop; i++) {
+    for(i = minIdx + 1; i < stop; i++) {
         if(array[i] < array[minIdx]) {
             minIdx = i;
         }
         i = i + 1;
     }
 
-    printf("Min Val is ( %d ) at position ( %d )\n",array[minVal], minVal);  
  
-    return minIdx; // TODO: Modify this to return the
+    return minIdx;
 }
 
 // Swaps two numbers in an array
 // Input: The 'address of' an index into an array for positions in an array.
 void swap(int* a, int* b){
     
-    // TODO: Swap two integers in an array.
     int temp = *a;
     *a = *b;
     *b = temp;
@@ -51,6 +47,13 @@ void swap(int* a, int* b){
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
     // TODO: Implement selection sort
+
+    int i;
+    for(i = 0; i < size - 1; ++i) {
+    
+        int curIdx = findMinimum(array,  i, size);
+        swap(&array[i], &array[curIdx]);
+    }    
 }
 
 
