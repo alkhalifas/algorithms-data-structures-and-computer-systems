@@ -13,8 +13,23 @@
 int findMinimum(int* array, int start, int stop){
     // TODO: Iterate through a subset of the array and find the minimum value.
     //       Return the index of that minimum value.
-  
-    return -1; // TODO: Modify this to return the
+
+    int minIdx = start;
+    int i;
+
+    for(i = start; i < stop; i++) {
+        if(array[i] < array[minIdx]) {
+            minIdx = i;
+        }
+        i = i + 1;
+    }
+
+    printf("Min Val is ( %d ) at position ( %d )\n",array[minVal], minVal);  
+
+
+
+ 
+    return minIdx; // TODO: Modify this to return the
 }
 
 // Swaps two numbers in an array
