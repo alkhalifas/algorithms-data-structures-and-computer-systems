@@ -25,9 +25,6 @@ int findMinimum(int* array, int start, int stop){
     }
 
     printf("Min Val is ( %d ) at position ( %d )\n",array[minVal], minVal);  
-
-
-
  
     return minIdx; // TODO: Modify this to return the
 }
@@ -35,7 +32,12 @@ int findMinimum(int* array, int start, int stop){
 // Swaps two numbers in an array
 // Input: The 'address of' an index into an array for positions in an array.
 void swap(int* a, int* b){
+    
     // TODO: Swap two integers in an array.
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+
 }
 
 // Provided below is a sort function. I have also
