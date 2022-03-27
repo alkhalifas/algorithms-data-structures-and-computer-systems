@@ -8,7 +8,6 @@
 // Swaps two numbers in an array
 // Input: The 'address of' an index into an array for positions in an array.
 void swap(int* a, int* b){
-    // TODO: Swap two integers in an array.
     int temp = *a;
     *a = *b;
     *b = temp;
@@ -26,6 +25,25 @@ void swap(int* a, int* b){
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
     // TODO: Implement insertion sort
+    
+    int current;
+    int next;
+ 
+    for(current = 0; current < size - 1; current++) {
+        int tmp = array[current+1];
+
+        next = 0;
+
+        int i;
+        for(i = current; i >= 0; i--) {
+            next = array[i];
+            if (tmp >= next) {
+                break;
+            } else if (tmp < next){
+                swap(&array[i], &array[+1]);
+            }
+        }
+    }
 }
 
 
