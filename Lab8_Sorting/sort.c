@@ -12,23 +12,27 @@
 // Output: The index in an array of the minimum value between a range [start,stop]
 int findMinimum(int* array, int start, int stop){
 
+    // Set the minimum as the starting index position
     int minIdx = start;
     int i;
 
+    // Iterate over the values, and set the minIdx
+    // when a value that is lower is found
     for(i = minIdx + 1; i < stop; i++) {
         if(array[i] < array[minIdx]) {
             minIdx = i;
         }
     }
 
- 
+    // Return the index of the minimal value
     return minIdx;
 }
 
 // Swaps two numbers in an array
 // Input: The 'address of' an index into an array for positions in an array.
 void swap(int* a, int* b){
-    
+ 
+    // Taken from the slides   
     int temp = *a;
     *a = *b;
     *b = temp;
@@ -45,9 +49,11 @@ void swap(int* a, int* b){
 //          (2) 'size' tells us how big the array of data is we are sorting.
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
-    // TODO: Implement selection sort
 
     int i;
+    
+    // Iterate over the values and find the minimum,
+    // and then swap the numbers
     for(i = 0; i < size - 1; ++i) {
     
         int curIdx = findMinimum(array,  i, size);
