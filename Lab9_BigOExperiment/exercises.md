@@ -6,9 +6,13 @@ Record here how long it took you to run bubblesort and csort (Note: If you want 
 
 *On average across three trials, the results of Bubble Sort and CSort are as follows:*
 *Bubble:*
+
     *real: 0.385s*
+    
     *user: 0.380s*
+    
     *sys: 0.003s*
+    
 *CSort:*
     *real: 0.008s*
     *user: 0.007s*
