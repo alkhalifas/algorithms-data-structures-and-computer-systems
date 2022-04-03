@@ -61,3 +61,5 @@ List the following functions in terms of their Big-O complexity from **smallest*
 
 - Given: f(n) = 3n^3 + n^2 + 27
 - What are two constants c and k that prove your answer in exercise 7.
+
+<img src=".lab8-e8.jpg"/>
