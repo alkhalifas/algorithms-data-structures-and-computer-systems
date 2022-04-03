@@ -2,7 +2,7 @@ Please edit this document below with your responses. Each question is worth 1/8 
 
 # Exercise 1
 
-1. Record here how long it took you to run bubblesort and csort (Note: If you want to run several trials, say '10' and take an average that is an even better result!).
+Record here how long it took you to run bubblesort and csort (Note: If you want to run several trials, say '10' and take an average that is an even better result!).
 
 *On average across three trials, the results of Bubble Sort and CSort are as follows:*
 *Bubble:*
