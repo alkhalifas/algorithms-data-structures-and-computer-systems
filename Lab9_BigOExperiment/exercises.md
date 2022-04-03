@@ -55,7 +55,7 @@ List the following functions in terms of their Big-O complexity from **smallest*
 - Given: f(n) = 3n^3 + n^2 + 27
 - What is the O(n) of f(n)?
 
-1. *edit your answer here for question 7*
+*The complexity is O(n^3) since constants can be ignored, and only the term with the fastest grow matters.*
 
 # Exercise 8
 
