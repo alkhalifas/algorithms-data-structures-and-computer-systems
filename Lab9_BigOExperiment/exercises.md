@@ -8,9 +8,7 @@ Record here how long it took you to run bubblesort and csort (Note: If you want 
 *Bubble:*
 
     *real: 0.385s*
-    
     *user: 0.380s*
-    
     *sys: 0.003s*
     
 *CSort:*
