@@ -8,15 +8,15 @@ Record here how long it took you to run bubblesort and csort (Note: If you want 
 
 *Bubble:*
 
-    *real: 0.385s*
-    *user: 0.380s*
-    *sys: 0.003s*
+    real: 0.385s
+    user: 0.380s
+    sys: 0.003s
     
 *CSort:*
 
-    *real: 0.008s*
-    *user: 0.007s*
-    *sys: 0.001s*
+    real: 0.008s
+    user: 0.007s
+    sys: 0.001s
 
 
 # Exercise 2
@@ -29,26 +29,26 @@ What is the Big-O complexity of bubblesort?
 
 Do a little research and discover what algorithm qsort is in the C standard library. What is the algorithm? https://en.wikipedia.org/wiki/Qsort
 
-1. *edit your answer here for question 3*
+1. *This qsort algorithm is an implementation of a polymorphic sorting algorithm for arrays, and a derivative of the QuickSort algorithm. An element of this algorithm worth mentioning is the comparison function taht is called which compares two elements, allowing the user to define type, thus expanding its use to many datatypes. Another interesting aspect of quick sort is the use of a pivot, which partitions the array and each partition is then sorted in a similar recursive manner.*
 
 # Exercise 4
 
 What is the Big-O complexity of 'qsort' that we use in the csort program?
 
-1. *edit your answer here for question 4*
+1. *When it comes to quick sort, the average complexity is O(nlogn). However, the worst-case complextiy is O(n^2).*
 
 # Exercise 5
 
 Is qsort's Big-O complexity better or worse than bubblesort? (Answer: Yes it is better/ No it is worse/ It is equal)
 
-1. *edit your answer here for question 5*
+1. *It depends. From what I have read they appear to be the same assuming we only care about the worst case scenario. If we include the average case scenario as well, then quick sort is better than its bubblesort counterpart.*
 
 # Exercise 6
 
 List the following functions in terms of their Big-O complexity from **smallest** to **largest**.
 <img src="./media/bigo.jpg"/>
 
-1. *edit your answer here for question 6*
+1. *log(N)   -   N   -   N^2   -   N^3   -   2^N   -   N!*
 
 # Exercise 7
 
