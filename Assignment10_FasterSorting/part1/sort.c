@@ -10,7 +10,7 @@
 // Second subarray is arr[m+1..r] 
 void merge(int arr[], int l, int m, int r) {
 
-    printf(">>> Reached merge\n");
+    //printf(">>> Reached merge\n");
 
     // Get the left and right lengths
     // based on input values l, m, and r
@@ -24,26 +24,28 @@ void merge(int arr[], int l, int m, int r) {
     int right[leftLength];
 
     // Populate the left and right subarrays
+    // Iterate over left side and populate
     int i;
     i = 0;
-
-    // Iterate over left side and populate
     for (i = 0; i < rightLength; i++) {
-        left[i] = arr[l + 1];
+        // Set left to array value
+        left[i] = arr[l + i];
     }
+    i = 0;
   
     // Iterate over right side and populate
-    i = 0;
-    for (i = 0; i < leftLength; i++) {
-        right[i] = arr[m + 1 + i];
+    int j;
+    j = 0;
+    for (j = 0; j < leftLength; j++) {
+        // Set right to array value
+        right[j] = arr[j + m + 1];
     }
+    j = 0;
 
     // Iterate over the subarrays in order to compare
     // the elements of each
-    i = 0;
-    int j = 0;
-    int n = l;
     // Compare elements to assemble array
+    int n = l;
     while (i < rightLength && j < leftLength) {
         // Set conditional of left is less than right
         if (left[i] <= right[j]) {
@@ -61,24 +63,26 @@ void merge(int arr[], int l, int m, int r) {
 
     // Work through the conditinoal logic for when the subarray is empty
     while (i < rightLength) {
+        //Set array to left index value
         arr[n] = left[i];
+        // Increment iterator
         i++;
         n++;
     }
 
-
-    while (j < leftLength) {
+    while (j < leftLength) {        
+        // Set arrau to right value
         arr[n] = right[j];
+        // Increment
         j++;
         n++;
-    }
-  
+    } 
 }
 
 // Implement your mergeSort function here
 void mergeSort(int array[], int left, int right) {
 
-    printf(">>> Reached mergeSort\n");
+    //printf(">>> Reached mergeSort\n");
     // Check if left less than right
     if (left < right) {
 
@@ -105,7 +109,7 @@ void mergeSort(int array[], int left, int right) {
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
 
-    printf(">>> Reached sortIntegers\n");
+    //printf(">>> Reached sortIntegers\n");
     mergeSort(array, 0, size - 1);
 }
 
@@ -132,19 +136,12 @@ int main(){
   
   // Sort our integer array
 
-  printf("|------------- 1 ------------|\n");
   sortIntegers(dataset1, 11);
-  printf("|------------- 2 ------------|\n");
   sortIntegers(dataset2, 11);
-  printf("|------------- 3 ------------|\n");
   sortIntegers(dataset3, 11);
-  printf("|------------- 4 ------------|\n");
   sortIntegers(dataset4, 11);
-  printf("|------------- 5 ------------|\n");
   sortIntegers(dataset5, 11);
-  printf("|------------- 6 ------------|\n");
   sortIntegers(dataset6, 11);
-  printf("|------------- 7 ------------|\n");
   
   // Print out an array
   printIntArray(dataset1, 11);
