@@ -50,19 +50,21 @@ void bruteForceSort(char** array, unsigned int start, unsigned int end){
 //          char** can be acquired form musicDB_t->database
 int partition(char** array, unsigned int low, unsigned int high){
     
+    printf(">>>>>>>> Starting Partition");
     char** pivot = &array[high];
     int i;
-    i = low - 1;
+    i = (low - 1);
     
-    int j = low;
-    for(j; j < high; j++) {
-        if (strcmp(array[i], *pivot) <=0) {
-            i = i + 1;
+    int j;
+    for(j = low; j < high; j++) {
+        if (strcmp(array[j], *pivot) <= 0) {
+            i++;
             swapStrings(&array[i], &array[j]);
         }
     }
     
-    swapStrings(&array[i], &array[i]);
+    swapStrings(&array[i+1], &array[high]);
+    printf(">>>>>>>> partition: %d", i+1);
     return(i+1);
 
 }
@@ -72,6 +74,7 @@ int partition(char** array, unsigned int low, unsigned int high){
 //          char** can be acquired form musicDB_t->database
 void quicksort(char** array, unsigned int low, unsigned int high){
     
+    printf(">>>>>>>> Starting quicksort");
     if(low < high) {
         int pivot = partition(array, low, high);
         quicksort(array, low, pivot-1);
@@ -94,6 +97,7 @@ int main(){
   // ===========================================
   // ===== Experiment 1 - Using Brute Force Sort ====
   // Create a clock to measure the elapsed time
+  //printf("------------------ Experiment 1 Start ------------------\n");
   clock_t start1,end1;
   start1 = clock();
   // perform bruteForceSort after starting your timer
@@ -106,14 +110,19 @@ int main(){
   // ===== Experiment 2 - Using Quick Sort ====
   //printArrayOfCharStrings(musicDatabase2,0,13593);
   // Create a clock to measure the elapsed tim
+  //printf("------------------ Experiment 1 Done ------------------\n");
+
+  //printf("------------------ Experiment 2 Start ------------------\n");
   clock_t start2,end2;
   start2 = clock();
   // perform quicksort after starting your timer
-  quicksort(musicDatabase2->database,0,musicDatabase2->size);  
+  quicksort(musicDatabase2->database,0,musicDatabase2->size-1);  
   end2 = clock();
   double experiment2 = ((double)(end2-start2)/CLOCKS_PER_SEC);
   // ===========================================
  
+  //printf("------------------ Experiment 2 Done ------------------\n");
+
   // check correctness
   // by printing out the first few items
   const int items = 20; // change this to up to 13593
