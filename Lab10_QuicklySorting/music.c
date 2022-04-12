@@ -61,7 +61,9 @@ musicDB_t* musicDB_createDatabase(const char* fileName){
   db->database = malloc(sizeof(char*)*db->size);
 
   char buffer[MAX_SONG_LENGTH];
-  for(size_t i =0; i < db->size; i++){
+
+  size_t i;
+  for(i =0; i < db->size; i++){
       // Allocate memory for each individual character string
       // Note: Songs can only be at max '80' characters long
       db->database[i] = malloc(sizeof(char)*MAX_SONG_LENGTH);
@@ -88,7 +90,8 @@ int musicDB_freeDatabase(musicDB_t* db){
         return -1;
     }
     // Free each song
-    for(int i=0; i < db->size; i++){
+    int i;
+    for(i=0; i < db->size; i++){
         free(db->database[i]);
     }
     // Free the pointers to the songs
