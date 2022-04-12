@@ -21,18 +21,47 @@ void merge(int arr[], int l, int m, int r) {
     leftLength = r - m;
 
     // Populate the left and right subarrays
-    for (i = 0; i < length
-
-
+    int i;
+    i = 0;
+    for (i = 0; i < rightLength; i++) {
+        right[rightLength] = arr[l + 1];
+    }
+    i = 0;
+    for (i = 0, i < leftLength; i++) {
+        left[leftLength] = arr[l + 1];
+    }
 
     // Iterate over the subarrays in order to compare
     // the elements of each
-
-
-
+    i = 0;
+    int j = 0;
+    int n = l;
+    while (i < rightLength && j < leftLength) {
+        if (left[i] <= right[j]) {
+            arr[n] = left[i];
+            i++;
+        } else {
+            arr[n] = right[j];
+            j++;
+        }
+        n++
+    }
 
     // Work through the conditinoal logic for when the subarray is empty
+ 
+    while (j < rightLength) {
     
+    // Add content to subarray
+
+    }
+
+
+    while (i < leftArray) {
+    
+    // Add content to subarray
+ 
+    }
+  
 }
 
 // Implement your mergeSort function here
