@@ -10,6 +10,29 @@
 // Second subarray is arr[m+1..r] 
 void merge(int arr[], int l, int m, int r) {
   //TODO: implement merge.
+
+    // Get the left and right lengths:
+    int rightLength;
+    int right[rightLength];
+    rightLength = m - l + 1;
+
+    int leftLength;
+    int left[leftLength];
+    leftLength = r - m;
+
+    // Populate the left and right subarrays
+    for (i = 0; i < length
+
+
+
+    // Iterate over the subarrays in order to compare
+    // the elements of each
+
+
+
+
+    // Work through the conditinoal logic for when the subarray is empty
+    
 }
 
 // Implement your mergeSort function here
