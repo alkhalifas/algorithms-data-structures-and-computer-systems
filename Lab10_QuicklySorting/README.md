@@ -100,7 +100,7 @@ void swapStrings(char** s1, char** s2){
 
 <!--**Answer the following with your partner:**--> **Answer the following here**: How do you think the strcmp function is implemented? i.e. What would your algorithm be in a sentence or two?
 
-*edit your answer here*
+*Within the confines of the strcmp function, it is implemented by comparing two strings together. This comparison is done on a character by character basis using ASCII values seen in the table above. The function then returns a value when a mismatch is seen.*
 
 # Part 3 - Quick sort
 
