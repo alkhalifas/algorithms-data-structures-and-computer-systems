@@ -13,7 +13,22 @@ void merge(int arr[], int l, int m, int r) {
 }
 
 // Implement your mergeSort function here
-// TODO:
+void mergeSort(int array[], int left, int right) {
+
+    // Check if left less than right
+    if (left < right) {
+
+        // Get middle pivot
+        int mid = ((left + right) / 2);
+
+        // Call mergeSort recursively on each side
+        mergeSort(array, left, mid);
+        mergeSort(array, mid + 1, right);
+
+        // Merge results
+        merge(array, left, mid, right);
+    }
+}
 
 // Provided below is a sort function. We have also
 // provided a template for how to document functions
@@ -25,7 +40,6 @@ void merge(int arr[], int l, int m, int r) {
 //          (2) 'size' tells us how big the array of data is we are sorting.
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
-    // TODO: make a call to your mergeSort function here
     mergeSort(array, 0, size - 1);
 }
 
