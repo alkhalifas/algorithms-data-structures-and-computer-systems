@@ -16,10 +16,10 @@ void merge(int arr[], int l, int m, int r) {
     // based on input values l, m, and r
     int rightLength;
     rightLength = m - l + 1;
-
     int leftLength;
     leftLength = r - m;
 
+    // Create left and right arrays
     int left[rightLength];
     int right[leftLength];
 
