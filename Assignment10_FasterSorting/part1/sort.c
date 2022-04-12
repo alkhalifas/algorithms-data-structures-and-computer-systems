@@ -26,6 +26,7 @@ void merge(int arr[], int l, int m, int r) {
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
     // TODO: make a call to your mergeSort function here
+    mergeSort(array, 0, size - 1);
 }
 
 
