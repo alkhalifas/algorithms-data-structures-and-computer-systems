@@ -8,19 +8,19 @@
 
 1. Explain: Take a moment and write down the intuition as to what the Big-O (worst-case) complexity of the merge sort algorithm is and why? 
 
-*edit your answer here for Task 2 question 1*
+*We can explain this based on the logic behind mergeSort. The algorithm operates by dividing a given array into two using the midpoint and calling mergeSort in a recursive fashion on each of the individual arrays. This process accounts of O(log(n)). On the other hand, the process of merging the subarrays together in a correct order is O(n) since it depends on the number of elements in the array. Therefore, we arrive at O(nlog(n)) is the final Big-O complexity.*
 
 2. Explain: What do you think the best-case complexity of the merge sort algorithm is and why?
 
-*edit your answer here for Part 2 question 2*
+*Within the confines of how the algorithm works, I would assume that the best, worst, and average cases are going to be the same with a big-o notation of O(nlog(n)), because of the fact that the splitting and merging is done regardless of whether the list is sorted or not. So theoretically you would have the same complexity of a sorted or unsorted list using this algorith.*
 
 3. Does merge sort require any additional storage beyond the original array? If so how much and why? Make sure to answer in regards to Big-O.
 
-*edit your answer here for Part 2 question 3*
+*Yes, unlike some of its other counter parts, this algorithm requires additional storage the subarrays created after each array is split in half. The space complexity within the confines of this question is likely going to be O(n).*
 
 4. How much time in Big-O does it take to merge all of the subarrays together? Explain or draw why?
 
-*edit your answer here for Part 2 question 4*
+*Ultimately the Big-O for merging all the arrays together will be O(n), and this is because of the number of elements included in the array. As the array is split into multiple subarrays,*
 
 
 ## Interview Prep (Optional +1% Bonus on assignment)
