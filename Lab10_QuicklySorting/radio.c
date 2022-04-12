@@ -55,7 +55,7 @@ int partition(char** array, unsigned int low, unsigned int high){
     i = low - 1;
     
     int j = low;
-    for(int j; j < high; j++) {
+    for(j; j < high; j++) {
         if (strcmp(array[i], *pivot) <=0) {
             i = i + 1;
             swapStrings(&array[i], &array[j]);
@@ -74,7 +74,8 @@ void quicksort(char** array, unsigned int low, unsigned int high){
     
     if(low < high) {
         int pivot = partition(array, low, high);
-        quicksort(array, low
+        quicksort(array, low, pivot-1);
+        quicksort(array, pivot+1, high);
 }
 
 
