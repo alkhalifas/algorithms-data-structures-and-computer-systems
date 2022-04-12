@@ -58,15 +58,16 @@ void merge(int arr[], int l, int m, int r) {
         n++;
     }
 
+
     // Work through the conditinoal logic for when the subarray is empty
-    while (j < rightLength) {
-        arr[n] = left[j];
-        j++;
+    while (i < rightLength) {
+        arr[n] = left[i];
+        i++;
         n++;
     }
 
 
-    while (i < leftLength) {
+    while (j < leftLength) {
         arr[n] = right[j];
         j++;
         n++;
