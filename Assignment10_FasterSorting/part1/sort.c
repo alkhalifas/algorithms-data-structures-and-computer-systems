@@ -9,26 +9,33 @@
 // First subarray is arr[l..m] 
 // Second subarray is arr[m+1..r] 
 void merge(int arr[], int l, int m, int r) {
-  //TODO: implement merge.
 
-    // Get the left and right lengths:
+    printf(">>> Reached merge\n");
+
+    // Get the left and right lengths
+    // based on input values l, m, and r
     int rightLength;
-    int right[rightLength];
     rightLength = m - l + 1;
 
     int leftLength;
-    int left[leftLength];
     leftLength = r - m;
+
+    int left[rightLength];
+    int right[leftLength];
 
     // Populate the left and right subarrays
     int i;
     i = 0;
+
+    // Iterate over left side and populate
     for (i = 0; i < rightLength; i++) {
-        right[rightLength] = arr[l + 1];
+        left[i] = arr[l + 1];
     }
+  
+    // Iterate over right side and populate
     i = 0;
-    for (i = 0, i < leftLength; i++) {
-        left[leftLength] = arr[l + 1];
+    for (i = 0; i < leftLength; i++) {
+        right[i] = arr[m + 1 + i];
     }
 
     // Iterate over the subarrays in order to compare
@@ -36,30 +43,33 @@ void merge(int arr[], int l, int m, int r) {
     i = 0;
     int j = 0;
     int n = l;
+    // Compare elements to assemble array
     while (i < rightLength && j < leftLength) {
+        // Set conditional of left is less than right
         if (left[i] <= right[j]) {
             arr[n] = left[i];
             i++;
         } else {
+            // Set inverse logic for when greater than
             arr[n] = right[j];
             j++;
         }
-        n++
+        // Increment n
+        n++;
     }
 
     // Work through the conditinoal logic for when the subarray is empty
- 
     while (j < rightLength) {
-    
-    // Add content to subarray
-
+        arr[n] = left[j];
+        j++;
+        n++;
     }
 
 
-    while (i < leftArray) {
-    
-    // Add content to subarray
- 
+    while (i < leftLength) {
+        arr[n] = right[j];
+        j++;
+        n++;
     }
   
 }
@@ -67,11 +77,12 @@ void merge(int arr[], int l, int m, int r) {
 // Implement your mergeSort function here
 void mergeSort(int array[], int left, int right) {
 
+    printf(">>> Reached mergeSort\n");
     // Check if left less than right
     if (left < right) {
 
         // Get middle pivot
-        int mid = ((left + right) / 2);
+        int mid = (left + right) / 2;
 
         // Call mergeSort recursively on each side
         mergeSort(array, left, mid);
@@ -92,6 +103,8 @@ void mergeSort(int array[], int left, int right) {
 //          (2) 'size' tells us how big the array of data is we are sorting.
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
+
+    printf(">>> Reached sortIntegers\n");
     mergeSort(array, 0, size - 1);
 }
 
@@ -117,12 +130,20 @@ int main(){
   int dataset6[] = {-1,1,2,-3,4,5,-6,7,8,-9,10};
   
   // Sort our integer array
+
+  printf("|------------- 1 ------------|\n");
   sortIntegers(dataset1, 11);
+  printf("|------------- 2 ------------|\n");
   sortIntegers(dataset2, 11);
+  printf("|------------- 3 ------------|\n");
   sortIntegers(dataset3, 11);
+  printf("|------------- 4 ------------|\n");
   sortIntegers(dataset4, 11);
+  printf("|------------- 5 ------------|\n");
   sortIntegers(dataset5, 11);
+  printf("|------------- 6 ------------|\n");
   sortIntegers(dataset6, 11);
+  printf("|------------- 7 ------------|\n");
   
   // Print out an array
   printIntArray(dataset1, 11);
