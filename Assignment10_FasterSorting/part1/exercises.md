@@ -16,7 +16,7 @@
 
 3. Does merge sort require any additional storage beyond the original array? If so how much and why? Make sure to answer in regards to Big-O.
 
-*Yes, unlike some of its other counter parts, this algorithm requires additional storage the subarrays created after each array is split in half. The space complexity within the confines of this question is likely going to be O(n).*
+*Yes, unlike some of its other counter parts, this algorithm requires additional storage for the subarrays created after each array is split in half. The space complexity within the confines of this question is likely going to be O(n).*
 
 4. How much time in Big-O does it take to merge all of the subarrays together? Explain or draw why?
 
