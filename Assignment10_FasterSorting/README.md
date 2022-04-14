@@ -1,13 +1,13 @@
 # TODO Please edit the following information in your assignment
 
-- Name:
-- How many hours did it take you to complete this assignment?
-- Did you collaborate with any other students/TAs/Professors?
+- Name: Saleh Alkhalifa
+- How many hours did it take you to complete this assignment? This one was tougher than the others, because there was a great deal of logic invovled here relative to some of the other ones we had completed. I needed to refer to some documentation online for some guidance, especially on the splitting and sorting portion.
+- Did you collaborate with any other students/TAs/Professors? No, but I did refer to some items on Piazza posted by Juan.
 - Did you use any external resources? (Cite them below)
-  - tbd
-  - tbd
-- (Optional) What was your favorite part of the assignment?
-- (Optional) How would you improve the assignment?
+  - [MergeSort](https://www.programiz.com/dsa/merge-sort)
+  - [MergeSort PsudoCode](https://hackr.io/blog/merge-sort-in-c)
+- (Optional) What was your favorite part of the assignment? I did not particularly like this assignment as I found myself referring to the two sources above more often that I had wanted to. I generally try to give assignments a few reasonable approaches without any guidance or assistance, but this one was particularly difficult. Now that I have completed it, I definitely appreciate and respect the logic behind the algorithm, its quite fascinating to see how it works.
+- (Optional) How would you improve the assignment? Some additional guidance (pesudocode) would be appreciated. I realize that it might give away a considerable amount of the answers, but I think being able to have a framework to build off of would be more beneficial to my learning.
 
 # Logistics
 
