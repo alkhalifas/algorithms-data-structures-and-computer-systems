@@ -22,7 +22,7 @@
 
 *Ultimately the Big-O for merging all the arrays together will be O(n), and this is because of the number of elements included in the array. As the array is split into multiple subarrays,*
 
-![Merge Image](../images/capture.JPG)
+![Merge Image](../media/capture.JPG)
 
 
 
