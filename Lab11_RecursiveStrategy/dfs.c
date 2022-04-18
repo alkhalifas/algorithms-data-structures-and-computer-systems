@@ -22,7 +22,9 @@ typedef struct TreeNode{
 void dfs(TreeNode_t* start){
 
     // Check for nulls
-   
+    if (start->left == NULL || start->right == NULL) {
+        return;
+    }   
 
     // Recursive call on Left
 
