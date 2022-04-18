@@ -4,12 +4,12 @@
 #include <stdio.h>
 
 // TODO: Implement iterative solution here
-int factorial(int n){
+long long int factorial(int n){
 
     //printf("Factorial of %d\n", n);
 
     // Initialize a cumulative total
-    int total = 1;
+    long long int total = 1;
 
     // Iterate over loop and decrement
     int i;
@@ -25,7 +25,7 @@ int factorial(int n){
 };
 
 // TODO: Implement recursive solution here
-int factorial_rec(int n){
+long long int factorial_rec(int n){
 
     // Check of n is 0 or 1
     if (n == 0 || n == 1) {
@@ -40,8 +40,8 @@ int factorial_rec(int n){
 int main(){
 
   // Both of these should print the same result!
-  printf("factorial(10) = %d\n",factorial(10));
-  printf("factorial_rec(10) = %d\n",factorial_rec(10));
+  printf("factorial(10) = %lld\n",factorial(10));
+  printf("factorial_rec(10) = %lld\n",factorial_rec(10));
 
 
   return 0;
