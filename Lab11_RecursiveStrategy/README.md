@@ -56,7 +56,7 @@ Once you have solved the above, answer and modify your programs for the followin
 
 1. If you want to compute a bigger factorial, you will need a larger data type. What is a bigger [data type](https://www.geeksforgeeks.org/data-types-in-c/) you can use to compute larger factorials? Change the 'return type' and input parameters to the factorial to something other than 'int' (and also change the format specifier in printf to something other than %d for the largest C data type you can find).
 
- *put in a brief answer here to the experiment from question 1 for what data type you changed your facotorial to use*
+ *I changed the data type from an int with a range from -2,147,483,648 to 2,147,483,647 to a long long int with a range of -(2^63) to (2^63)-1. My reasoning here is that it provided a much larger range, and it was signed, in the sense that you can have negative values for a factorial. Although most factorial calculators out there do not allow a negative number to be computed, I did some research about factorials for real negative and imaginary numbers and determined that they do infact can exist, which you can find here (https://springerplus.springeropen.com/articles/10.1186/2193-1801-3-658)*
 
 2. Try <!-- with your partner --> computing factorials larger than say 15. At what input value for the factorial functions does your computer start to 'crash' or really slow down when you try to compute a factorial? Experiment and report your results.
 
