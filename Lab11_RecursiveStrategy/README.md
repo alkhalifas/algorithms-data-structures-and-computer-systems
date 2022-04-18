@@ -60,7 +60,7 @@ Once you have solved the above, answer and modify your programs for the followin
 
 2. Try <!-- with your partner --> computing factorials larger than say 15. At what input value for the factorial functions does your computer start to 'crash' or really slow down when you try to compute a factorial? Experiment and report your results.
 
- *put in a brief answer here to the experiment from question 2*
+ *When running the functions, I found that 20 was the last logical answer as 21 returned a negative number. I continued to explore, and further found that 64 was the last number that returned a non-zero value - but all values leading to 64 returned negative numbers.*
 
 ## Compiling and running the program.
 
