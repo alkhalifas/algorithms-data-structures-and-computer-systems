@@ -21,16 +21,21 @@ typedef struct TreeNode{
 // **Hint** Think recursively
 void dfs(TreeNode_t* start){
 
+    //printf("STARTED HERE %c");
+    printf("Curr ----> %c\n", start->data);
+
     // Check for nulls
     if (start->left == NULL || start->right == NULL) {
         return;
     }   
 
     // Recursive call on Left
-
+    dfs(start->left);
 
     // Recursive call on RIght    
-
+    if (start->right != NULL) {
+        dfs(start->right);
+    }
 
 }
 
