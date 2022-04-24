@@ -24,7 +24,9 @@ bst_t* bst_create(){
 // Returns 1 if true (The BST is completely empty)
 // Returns 0 if false (the BST has at least one element)
 int bst_empty(bst_t* t){
-    return 0;
+    // Return the size, which should be either
+    // 0 or another number
+    return t->size == 0;
 }
 
 // Adds a new node containng item to the BST
