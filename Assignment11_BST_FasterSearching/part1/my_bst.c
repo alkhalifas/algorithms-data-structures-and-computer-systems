@@ -64,7 +64,20 @@ int bst_recursiveAdder(bstnode_t* t, int item) {
 // Your implementation should should run in O(log(n)) time.
 //  - A recursive imlementation is suggested.
 int bst_add(bst_t* t, int item){
-    return -1;
+    int state = -1;
+    if(t) {
+        if(NULL == t->root) {
+            t->root = create_node(item);
+            state = 1;
+        } else {
+            state = bst_recursiveAdder(t->root, item);
+        }
+    } else {
+        if(state == 1) {
+            t->size++;
+        }
+    }
+    return state;
 }
 
 // Prints the tree in ascending order if order = 0, otherwise prints in descending order.
