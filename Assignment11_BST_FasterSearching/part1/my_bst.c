@@ -122,6 +122,23 @@ int bst_sum(bst_t *t){
     return sum;
 }
 
+
+int recursiveFinder(bstnode_t* node, int value) {
+    if(node) {
+        if(node->data == value) {
+            return 1;
+        }
+        if(recursiveFinder(node->leftChild, value) == 1) {
+            return 1;
+        }
+        if(recursiveFinder(node->rightChild, value) == 1) {
+            return 1;
+        }
+    } else {
+        return 0;
+    }
+}
+
 // Returns 1 if value is found in the tree, 0 otherwise. 
 // For NULL tree it exists the program. 
 // It should run in O(log(n)) time.
