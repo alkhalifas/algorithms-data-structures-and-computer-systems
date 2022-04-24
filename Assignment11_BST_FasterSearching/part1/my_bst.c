@@ -116,7 +116,10 @@ int recursiveSummer(bstnode_t* node) {
 // exits the program for a NULL tree. 
 // It should run in O(n) time.
 int bst_sum(bst_t *t){
-  return 0;
+    
+    int sum = recursiveSummer(t->root);
+    
+    return sum;
 }
 
 // Returns 1 if value is found in the tree, 0 otherwise. 
