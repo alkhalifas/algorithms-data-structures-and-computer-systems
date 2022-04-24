@@ -134,16 +134,18 @@ int recursiveFinder(bstnode_t* node, int value) {
         if(recursiveFinder(node->rightChild, value) == 1) {
             return 1;
         }
-    } else {
-        return 0;
     }
+    return 0;
+    
 }
 
 // Returns 1 if value is found in the tree, 0 otherwise. 
 // For NULL tree it exists the program. 
 // It should run in O(log(n)) time.
 int bst_find(bst_t * t, int value){
-  return 0;
+
+    recursiveFinder(t->root, value);
+    return 1;
 }
 
 // Returns the size of the BST
@@ -158,10 +160,20 @@ unsigned int bst_size(bst_t* t){
     return 0;
 }
 
+void recursiveFreeing(bstnode_t* t) {
+    if(t) {
+        recursiveFreeing(t->leftChild);
+        recursiveFreeing(t->rightChild);
+        free(t);
+    }
+}
+
+
 // Free BST
 // Removes a BST and ALL of its elements from memory.
 // This should be called before the proram terminates.
 void bst_free(bst_t* t){
-
+    recursiveFreeing(t->root);
+    free(t);
 }
 
