@@ -25,7 +25,7 @@ bstnode_t* create_node(int item) {
     node->rightChild = NULL;
     node->leftChild = NULL;
     return node;
-
+}
 
 // BST Empty
 // Check if the BST is empty
