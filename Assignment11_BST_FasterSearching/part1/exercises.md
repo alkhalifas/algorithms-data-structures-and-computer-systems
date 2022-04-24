@@ -10,10 +10,10 @@ Discuss and answer the following questions (Make sure to elaborate and justify y
 
 ## Answers
 
-1. *edit your answer here*
-2. *edit your answer here*
-3. *edit your answer here*
-4. *edit your answer here*
+1. *A binary tree can be said to be a 'balacned tree' if the total difference in height between the left and right branches is no more than 1. Ideally, all levels should be filled with the exception of the last, where the balance would be off by either 1 or 0 rows.*
+2. *Assuming a perfectly balanced tree, the time complexity would be O(log(n))*
+3. *If we take for example a very unbalanced tree where the difference in height between the left and right nodes is greater than 1, we can most likely achieve O(n) time complexity. Assume that this tree is skewed heavily, the number of operations we would need to visit a given node would increase since we need to reach the greater depths of that tree, and the linear fashion of a tree like that would cause it to reach O(n).*
+4. *When traversing a tree, one needs to compare the value of interest to the value of the node to determine the direction to continue the traversal. This is where we arrive at the recurrence relation, which we can define as T(n) = T(n/2)+1, where n is the size or number of elements. We can think of this in relation to the master theorem T(n) = aT(n/b) + f(n), such that a=1 and b=2. In this case, f(n)=O(1).*
 
 
 
