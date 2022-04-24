@@ -111,6 +111,7 @@ int unitTest6() {
 
     bst_print(testBST, 0);
 
+    bst_free(testBST);
     return 1;
 }
 
@@ -123,6 +124,8 @@ int unitTest7() {
     bst_add(testBST, 2);
 
     bst_print(testBST, 1);
+    bst_free(testBST);
+
     return 1;
 }
 
@@ -146,6 +149,8 @@ int unitTest9() {
     bst_add(testBST, 1);
  
     result = bst_size(testBST);
+
+    bst_free(testBST);
 
     if(result == 3) {
         return 1;
