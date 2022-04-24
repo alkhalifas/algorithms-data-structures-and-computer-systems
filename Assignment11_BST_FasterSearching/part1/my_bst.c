@@ -20,10 +20,14 @@ bst_t* bst_create(){
 }
 
 bstnode_t* create_node(int item) {
+    // Instantiate new mode, and malloc size
     bstnode_t* node = (bstnode_t*)malloc(sizeof(bstnode_t));
+    // Assign data as item
     node->data = item;
+    // Assign NULL for left and right children
     node->rightChild = NULL;
     node->leftChild = NULL;
+    // Return the newly created node
     return node;
 }
 
@@ -99,6 +103,14 @@ void bst_print(bst_t *t, int order){
     }
 }
 
+int recursiveSummer(bstnode_t* node) {
+    if(node) {
+        node->data = recursiveSummer(node->leftChild) + recursiveSummer(node->rightChild);
+        return node->data;
+    } else {
+        return 0;
+    }
+}
 
 // Returns the sum of all the nodes in the bst. 
 // exits the program for a NULL tree. 
