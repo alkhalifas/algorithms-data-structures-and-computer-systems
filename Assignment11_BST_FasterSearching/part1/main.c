@@ -67,17 +67,34 @@ int unitTest3(){
 int unitTest4() {
 
     int result;
-    bst_t* testBST = bst_create();
-    bst_add(testBST, 78);
-    result = bst_find(testBST, 78);
-    if(result == 78) {
+    bst_t * testBST = bst_create();
+    bst_add(testBST, 66);
+    result = bst_sum(testBST);
+    bst_free(testBST);
+    if(result == 66) {
         return 1;
     }
     return 0;
 }
 
+// Find new value
+int unitTest5() {
+    int result;
+    bst_t * testBST = bst_create();
+    bst_add(testBST, 5);
+    result = bst_find(testBST, 5);
+    bst_free(testBST);
+    return result;
+}
 
-
+// Testing print Asc
+int unitTest6() {
+    
+    bst_t * testBST = bst_create();
+    bst_add(testBST, 5);
+    bst_print(testBST, 0);
+    return 1;
+}
 
 // TODO: Add more tests here at your discretion
 int (*unitTests[])(int)={
@@ -85,6 +102,8 @@ int (*unitTests[])(int)={
     unitTest2,
     unitTest3,
     unitTest4,
+    unitTest5,
+    unitTest6,
     NULL
 };
 

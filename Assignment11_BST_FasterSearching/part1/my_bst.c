@@ -20,34 +20,20 @@ bst_t* bst_create(){
     return myBST;
 }
 
-//bstnode_t* create_node(int item) {
-    // Instantiate new mode, and malloc size
-//    bstnode_t* node = (bstnode_t*)malloc(sizeof(bstnode_t));
-    // Assign data as item
-//    node->data = item;
-    // Assign NULL for left and right children
-//    node->rightChild = NULL;
-//    node->leftChild = NULL;
-
-//    printf("BST Node Created!, item: %d\n", item);
-    // Return the newly created node
-//    return node;
-//}
-
 // BST Empty
 // Check if the BST is empty
 // Returns 1 if true (The BST is completely empty)
 // Returns 0 if false (the BST has at least one element)
 int bst_empty(bst_t* t){
-    // Return the size, which should be either
-    // 0 or another number
+    // Check if NULL
     if(t == NULL) {
         exit(0);
-    }
-    if(t->size == 0) {
+    // Check if size is 0
+    } else if(t->size == 0) {
         return 1;
-    }
+    } else {
     return 0;
+    }
 }
 
 int recursiveAdder(bstnode_t* curNode, bstnode_t* newNode) {
@@ -55,15 +41,20 @@ int recursiveAdder(bstnode_t* curNode, bstnode_t* newNode) {
     if(newNode->data <= curNode->data) {
         // Check if left exists, add
         if(curNode->leftChild == NULL) {
+            // Add newNode to leftChild
             curNode->leftChild = newNode;
         } else {
+            // Recursively call function
             recursiveAdder(curNode->leftChild, newNode);
         }
-    } else {
+    // Check data size relative to current
+    } else if (newNode->data > curNode->data) {
         // Check if right exists, add
         if(curNode->rightChild == NULL) {
-            curNode->rightChild = newNode);
+            // Add to rightChild
+            curNode->rightChild = newNode;
         } else {
+            // Recursively call 
             recursiveAdder(curNode->rightChild, newNode);
         }
     }
@@ -82,11 +73,11 @@ int recursiveAdder(bstnode_t* curNode, bstnode_t* newNode) {
 //  - A recursive imlementation is suggested.
 int bst_add(bst_t* t, int item){
 
-    if(t == NULL) {
-        exit(0);
+    bstnode_t* newNode = (bstnode_t*)malloc(sizeof(bstnode_t*));
+
+    if(newNode == NULL) {
+        return -1;
     }
-    
-    bstnode_t* newNode = (bstnode_t*)malloc(siseof(bstnode_t*));
 
     newNode->data = item;
     newNode->rightChild = NULL;
@@ -130,7 +121,7 @@ void print_asc(bstnode_t* node) {
 void bst_print(bst_t *t, int order){
     if(NULL == t){
         printf("(NULL)");
-    }else{
+    } else {
         if(order == 0) {
             print_asc(t->root);
         } else {
@@ -140,7 +131,10 @@ void bst_print(bst_t *t, int order){
 }
 
 int recursiveSummer(bstnode_t* node) {
-    if(node != NULL) {
+    
+    if(node == NULL) {
+        return 0;
+    } else {
 
         int recSumLeft = 0;
         int recSumRight = 0;
@@ -152,16 +146,12 @@ int recursiveSummer(bstnode_t* node) {
             recSumRight = recursiveSummer(node->rightChild);
         }
 
-        printf("RecSumLeft: %d\n", recSumLeft);
-        printf("recSumRifght: %d\n", recSumRight);
+        //printf("RecSumLeft: %d\n", recSumLeft);
+        //printf("recSumRifght: %d\n", recSumRight);
+        //printf("node->data: %d\n", node->data);
 
-        node->data = recSumLeft + recSumRight;
-
-        printf("node->data: %d\n", node->data);
-
-        return node->data;
+        return node->data + recSumLeft + recSumRight;
     }
-    return 0;
 }
 
 // Returns the sum of all the nodes in the bst. 
@@ -171,28 +161,23 @@ int bst_sum(bst_t *t){
     if(t==NULL) {
         exit(0);
     } else {
-
-        int sum = recursiveSummer(t->root);
-        printf("BST sum called: %d\n", sum); 
-        return sum;
+        return recursiveSummer(t->root);
     }
 }
 
 
 int recursiveFinder(bstnode_t* node, int value) {
-    if(node) {
-        if(node->data == value) {
-            return 1;
-        }
+    if(node->data == value) {
+        return 1;
+    } else {
+      
         if(value < node->data && node->leftChild != NULL) {
             recursiveFinder(node->leftChild, value);
-        }
-        if(value > node->data && node->rightChild != NULL) {
+        } else if(value > node->data && node->rightChild != NULL) {
             recursiveFinder(node->rightChild, value);
         }
-    }
     return 0;
-    
+    }
 }
 
 // Returns 1 if value is found in the tree, 0 otherwise. 
@@ -204,7 +189,7 @@ int bst_find(bst_t * t, int value){
         exit(0);
     } else {
 
-        printf("bst_find searching for: %d\n", value);
+        //printf("bst_find searching for: %d\n", value);
         return recursiveFinder(t->root, value);
     }
 }
@@ -213,19 +198,18 @@ int bst_find(bst_t * t, int value){
 // A BST that is NULL exits the program.
 // (i.e. A NULL BST cannot return the size)
 unsigned int bst_size(bst_t* t){
-    if (t) {
-        return t->size;
-    } else {
+    if (t==NULL) {
         exit(0);
+    } else {
+        return t->size;
     }
-    return 0;
 }
 
-void recursiveFreeing(bstnode_t* t) {
-    if(t) {
-        recursiveFreeing(t->leftChild);
-        recursiveFreeing(t->rightChild);
-        free(t);
+void recursiveFreeing(bstnode_t* node) {
+    if(node != NULL) {
+        recursiveFreeing(node->leftChild);
+        recursiveFreeing(node->rightChild);
+        free(node);
     }
 }
 
@@ -234,6 +218,9 @@ void recursiveFreeing(bstnode_t* t) {
 // Removes a BST and ALL of its elements from memory.
 // This should be called before the proram terminates.
 void bst_free(bst_t* t){
+    if(t == NULL) {
+        return;
+    }
     recursiveFreeing(t->root);
     free(t);
 }
