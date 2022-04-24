@@ -235,6 +235,7 @@ unsigned int bst_size(bst_t* t){
 void recursiveFreeing(bstnode_t* node) {
     // Check if null, otherwise free everything
     if(node != NULL) {
+        // Free left, then right, then node
         recursiveFreeing(node->leftChild);
         recursiveFreeing(node->rightChild);
         free(node);
@@ -250,6 +251,8 @@ void recursiveFreeing(bstnode_t* node) {
 void bst_free(bst_t* t){
 
     if(t){
+        // Call recursive function, then
+        // free t itself
         recursiveFreeing(t->root);
         free(t);
 
