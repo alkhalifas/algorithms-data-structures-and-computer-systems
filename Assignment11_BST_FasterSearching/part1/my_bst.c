@@ -70,6 +70,11 @@ int bst_find(bst_t * t, int value){
 // A BST that is NULL exits the program.
 // (i.e. A NULL BST cannot return the size)
 unsigned int bst_size(bst_t* t){
+    if (t) {
+        return t->size;
+    } else {
+        exit(0);
+    }
     return 0;
 }
 
