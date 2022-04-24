@@ -131,15 +131,26 @@ void bst_print(bst_t *t, int order){
     if(NULL == t){
         printf("(NULL)");
     }else{
-
+        if(order == 0) {
+            print_asc(t->root);
+        } else {
+            print_desc(t->root);
+        }
     }
 }
 
 int recursiveSummer(bstnode_t* node) {
-    if(node) {
+    if(node != NULL) {
 
-        int recSumLeft = recursiveSummer(node->leftChild);
-        int recSumRight = recursiveSummer(node->rightChild);
+        int recSumLeft = 0;
+        int recSumRight = 0;
+
+        if(node->leftChild != NULL) {
+            recSumLeft = recursiveSummer(node->leftChild);
+        }
+        if(node->rightChild != NULL) {
+            recSumRight = recursiveSummer(node->rightChild);
+        }
 
         printf("RecSumLeft: %d\n", recSumLeft);
         printf("recSumRifght: %d\n", recSumRight);
