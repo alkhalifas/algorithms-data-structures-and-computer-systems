@@ -19,6 +19,14 @@ bst_t* bst_create(){
     return myBST;
 }
 
+bstnode_t* create_node(int item) {
+    bstnode_t* node = (bstnode_t*)malloc(sizeof(bstnode_t));
+    node->data = item;
+    node->rightChild = NULL;
+    node->leftChild = NULL;
+    return node;
+
+
 // BST Empty
 // Check if the BST is empty
 // Returns 1 if true (The BST is completely empty)
