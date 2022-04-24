@@ -74,7 +74,7 @@ int recursiveAdder(bstnode_t* curNode, bstnode_t* newNode) {
 int bst_add(bst_t* t, int item){
 
     // Create new node, malloc as needed
-    bstnode_t* newNode = (bstnode_t*)malloc(sizeof(bstnode_t*));
+    bstnode_t* newNode = (bstnode_t*)malloc(sizeof(bstnode_t));
     
     // Return -1 if NULL, per specs
     if(newNode == NULL) {
