@@ -29,6 +29,30 @@ int bst_empty(bst_t* t){
     return t->size == 0;
 }
 
+int bst_recursiveAdder(bstnode_t* t, int item) {
+    if(t) {
+        if(item <= t->data){
+            if(NULL == t->leftChild) {
+                t->leftChild = create_node(item);
+            } else {
+                if(bst_recursiveAdder(t->leftChild, item) == 1) {
+                    return 1;
+                }
+            }
+        } else {
+            if(NULL == t->rightChild) {
+                t->rightChild = create_node(item);
+                return 1;
+            } else {
+                if(bst_recursiveAdder(t->rightChild, item) == 1) {
+                    return 1;
+                }
+            }
+        }
+    }
+        return -1;
+}
+
 // Adds a new node containng item to the BST
 // The item is added in the correct position in the BST.
 //  - If the data is less than or equal to the current node we traverse left
@@ -53,6 +77,7 @@ void bst_print(bst_t *t, int order){
 
     }
 }
+
 
 // Returns the sum of all the nodes in the bst. 
 // exits the program for a NULL tree. 
