@@ -104,6 +104,26 @@ int bst_add(bst_t* t, int item){
     return 1;
 }
 
+void print_desc(bstnode_t* node) {
+    if(node==NULL){
+       return;
+    } else {
+        print_desc(node->rightChild);
+        printf(">>>> %d", node->data);
+        print_desc(node->leftChild);
+    }
+}
+
+void print_asc(bstnode_t* node) {
+    if(node==NULL){
+        return;
+    } else {
+        print_asc(node->leftChild);
+        printf(">>>> %d", node->data);
+        print_asc(node->rightChild);
+    }
+}
+
 // Prints the tree in ascending order if order = 0, otherwise prints in descending order.
 // For NULL tree -- print "(NULL)".
 // It should run in O(n) time.
