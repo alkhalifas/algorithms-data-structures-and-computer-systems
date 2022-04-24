@@ -168,10 +168,14 @@ int recursiveSummer(bstnode_t* node) {
 // exits the program for a NULL tree. 
 // It should run in O(n) time.
 int bst_sum(bst_t *t){
-    
-    int sum = recursiveSummer(t->root);
-    printf("BST sum called: %d\n", sum); 
-    return sum;
+    if(t==NULL) {
+        exit(0);
+    } else {
+
+        int sum = recursiveSummer(t->root);
+        printf("BST sum called: %d\n", sum); 
+        return sum;
+    }
 }
 
 
@@ -180,11 +184,11 @@ int recursiveFinder(bstnode_t* node, int value) {
         if(node->data == value) {
             return 1;
         }
-        if(recursiveFinder(node->leftChild, value) == 1) {
-            return 1;
+        if(value < node->data && node->leftChild != NULL) {
+            recursiveFinder(node->leftChild, value);
         }
-        if(recursiveFinder(node->rightChild, value) == 1) {
-            return 1;
+        if(value > node->data && node->rightChild != NULL) {
+            recursiveFinder(node->rightChild, value);
         }
     }
     return 0;
@@ -196,21 +200,13 @@ int recursiveFinder(bstnode_t* node, int value) {
 // It should run in O(log(n)) time.
 int bst_find(bst_t * t, int value){
 
-    printf("bst_find searching for: %d\n", value);
-//    if(!t->root) {
-//        return 0;
-//    }
-//    if(t->root->data == value) {
-//        return 1;
-//   } else if (t->root->data > value) {
-//        return bst_find(t->root->leftChild, value);
-//    } else {
-//        return bst_find(t->root->rightChild, value);
-//    }
-    return 0;
+    if(t==NULL) {
+        exit(0);
+    } else {
 
-    //recursiveFinder(t->root, value);
-    //return 1;
+        printf("bst_find searching for: %d\n", value);
+        return recursiveFinder(t->root, value);
+    }
 }
 
 // Returns the size of the BST
