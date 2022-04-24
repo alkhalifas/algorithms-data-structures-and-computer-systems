@@ -10,9 +10,11 @@
 // The BST should be initialized with data on the heap.
 // The BST fields should also be initialized to default values(i.e. size=0).
 bst_t* bst_create(){
-    // Modify the body of this function as needed.
+    // Create new BST, malloc for size of bst_t
     bst_t* myBST= (bst_t*)malloc(sizeof(bst_t)); 
+    // Set root as NULL
     myBST->root = NULL;
+    // Set size as 0
     myBST->size = 0;
     return myBST;
 }
