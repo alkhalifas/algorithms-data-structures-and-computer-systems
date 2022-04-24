@@ -16,23 +16,23 @@ bst_t* bst_create(){
     myBST->root = NULL;
     // Set size as 0
     myBST->size = 0;
-    printf("BST Created!\n");
+    //printf("BST Created!\n");
     return myBST;
 }
 
-bstnode_t* create_node(int item) {
+//bstnode_t* create_node(int item) {
     // Instantiate new mode, and malloc size
-    bstnode_t* node = (bstnode_t*)malloc(sizeof(bstnode_t));
+//    bstnode_t* node = (bstnode_t*)malloc(sizeof(bstnode_t));
     // Assign data as item
-    node->data = item;
+//    node->data = item;
     // Assign NULL for left and right children
-    node->rightChild = NULL;
-    node->leftChild = NULL;
+//    node->rightChild = NULL;
+//    node->leftChild = NULL;
 
-    printf("BST Node Created!, item: %d\n", item);
+//    printf("BST Node Created!, item: %d\n", item);
     // Return the newly created node
-    return node;
-}
+//    return node;
+//}
 
 // BST Empty
 // Check if the BST is empty
@@ -41,31 +41,33 @@ bstnode_t* create_node(int item) {
 int bst_empty(bst_t* t){
     // Return the size, which should be either
     // 0 or another number
-    return t->size == 0;
+    if(t == NULL) {
+        exit(0);
+    }
+    if(t->size == 0) {
+        return 1;
+    }
+    return 0;
 }
 
-int bst_recursiveAdder(bstnode_t* t, int item) {
-    if(t) {
-        if(item <= t->data){
-            if(NULL == t->leftChild) {
-                t->leftChild = create_node(item);
-            } else {
-                if(bst_recursiveAdder(t->leftChild, item) == 1) {
-                    return 1;
-                }
-            }
+int recursiveAdder(bstnode_t* curNode, bstnode_t* newNode) {
+    // Check data size relative to current
+    if(newNode->data <= curNode->data) {
+        // Check if left exists, add
+        if(curNode->leftChild == NULL) {
+            curNode->leftChild = newNode;
         } else {
-            if(NULL == t->rightChild) {
-                t->rightChild = create_node(item);
-                return 1;
-            } else {
-                if(bst_recursiveAdder(t->rightChild, item) == 1) {
-                    return 1;
-                }
-            }
+            recursiveAdder(curNode->leftChild, newNode);
+        }
+    } else {
+        // Check if right exists, add
+        if(curNode->rightChild == NULL) {
+            curNode->rightChild = newNode);
+        } else {
+            recursiveAdder(curNode->rightChild, newNode);
         }
     }
-        return -1;
+    return 1;
 }
 
 // Adds a new node containng item to the BST
@@ -79,21 +81,27 @@ int bst_recursiveAdder(bstnode_t* t, int item) {
 // Your implementation should should run in O(log(n)) time.
 //  - A recursive imlementation is suggested.
 int bst_add(bst_t* t, int item){
-    int state = -1;
-    if(t) {
-        if(NULL == t->root) {
-            t->root = create_node(item);
-            state = 1;
-        } else {
-            state = bst_recursiveAdder(t->root, item);
-        }
-    } else {
-        if(state == 1) {
-            t->size++;
-        }
+
+    if(t == NULL) {
+        exit(0);
     }
-    printf("bst_add completed\n");
-    return state;
+    
+    bstnode_t* newNode = (bstnode_t*)malloc(siseof(bstnode_t*));
+
+    newNode->data = item;
+    newNode->rightChild = NULL;
+    newNode->leftChild = NULL;
+
+    if(t->root == NULL) {
+        t->root = newNode;
+        t->size ++;
+        return 1;
+    }
+
+    recursiveAdder(t->root, newNode);
+    t->size ++;
+
+    return 1;
 }
 
 // Prints the tree in ascending order if order = 0, otherwise prints in descending order.
@@ -109,7 +117,17 @@ void bst_print(bst_t *t, int order){
 
 int recursiveSummer(bstnode_t* node) {
     if(node) {
-        node->data = recursiveSummer(node->leftChild) + recursiveSummer(node->rightChild);
+
+        int recSumLeft = recursiveSummer(node->leftChild);
+        int recSumRight = recursiveSummer(node->rightChild);
+
+        printf("RecSumLeft: %d\n", recSumLeft);
+        printf("recSumRifght: %d\n", recSumRight);
+
+        node->data = recSumLeft + recSumRight;
+
+        printf("node->data: %d\n", node->data);
+
         return node->data;
     }
     return 0;
@@ -147,8 +165,21 @@ int recursiveFinder(bstnode_t* node, int value) {
 // It should run in O(log(n)) time.
 int bst_find(bst_t * t, int value){
 
-    recursiveFinder(t->root, value);
-    return 1;
+    printf("bst_find searching for: %d\n", value);
+//    if(!t->root) {
+//        return 0;
+//    }
+//    if(t->root->data == value) {
+//        return 1;
+//   } else if (t->root->data > value) {
+//        return bst_find(t->root->leftChild, value);
+//    } else {
+//        return bst_find(t->root->rightChild, value);
+//    }
+    return 0;
+
+    //recursiveFinder(t->root, value);
+    //return 1;
 }
 
 // Returns the size of the BST

@@ -63,12 +63,28 @@ int unitTest3(){
     return 0;
 }
 
+// Checks development details
+int unitTest4() {
+
+    int result;
+    bst_t* testBST = bst_create();
+    bst_add(testBST, 78);
+    result = bst_find(testBST, 78);
+    if(result == 78) {
+        return 1;
+    }
+    return 0;
+}
+
+
+
 
 // TODO: Add more tests here at your discretion
 int (*unitTests[])(int)={
     unitTest1,
     unitTest2,
     unitTest3,
+    unitTest4,
     NULL
 };
 
