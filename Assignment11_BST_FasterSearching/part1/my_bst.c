@@ -73,22 +73,28 @@ int recursiveAdder(bstnode_t* curNode, bstnode_t* newNode) {
 //  - A recursive imlementation is suggested.
 int bst_add(bst_t* t, int item){
 
+    // Create new node, malloc as needed
     bstnode_t* newNode = (bstnode_t*)malloc(sizeof(bstnode_t*));
-
+    
+    // Return -1 if NULL, per specs
     if(newNode == NULL) {
         return -1;
     }
 
+    // Assign data using item, and NULL
+    // for left and right children
     newNode->data = item;
     newNode->rightChild = NULL;
     newNode->leftChild = NULL;
 
+    // Assign root as newNode and size if NULL
     if(t->root == NULL) {
         t->root = newNode;
         t->size ++;
         return 1;
     }
-
+    
+    // Call recursive adder and increment size
     recursiveAdder(t->root, newNode);
     t->size ++;
 
@@ -96,9 +102,11 @@ int bst_add(bst_t* t, int item){
 }
 
 void print_desc(bstnode_t* node) {
+    // Check if NULL
     if(node==NULL){
        return;
     } else {
+        // Print starting with rightChild
         print_desc(node->rightChild);
         printf(">>>> %d", node->data);
         print_desc(node->leftChild);
@@ -106,9 +114,11 @@ void print_desc(bstnode_t* node) {
 }
 
 void print_asc(bstnode_t* node) {
+    // Cehck if NULL
     if(node==NULL){
         return;
     } else {
+        // Print ASC starting with leftChild
         print_asc(node->leftChild);
         printf(">>>> %d", node->data);
         print_asc(node->rightChild);
@@ -119,11 +129,14 @@ void print_asc(bstnode_t* node) {
 // For NULL tree -- print "(NULL)".
 // It should run in O(n) time.
 void bst_print(bst_t *t, int order){
+    // Check if NULL first
     if(NULL == t){
         printf("(NULL)");
     } else {
         if(order == 0) {
+            // If order 0, ASC
             print_asc(t->root);
+            // If order not 0, desc
         } else {
             print_desc(t->root);
         }
@@ -131,17 +144,22 @@ void bst_print(bst_t *t, int order){
 }
 
 int recursiveSummer(bstnode_t* node) {
-    
+ 
+    // Check if NULL   
     if(node == NULL) {
         return 0;
     } else {
 
+        // Variables to store sum for 
+        // left and right children
         int recSumLeft = 0;
         int recSumRight = 0;
 
+        // Check if NULL, otherwise sum recursively
         if(node->leftChild != NULL) {
             recSumLeft = recursiveSummer(node->leftChild);
         }
+        // Check if NULL, other sum recursively
         if(node->rightChild != NULL) {
             recSumRight = recursiveSummer(node->rightChild);
         }
@@ -149,8 +167,10 @@ int recursiveSummer(bstnode_t* node) {
         //printf("RecSumLeft: %d\n", recSumLeft);
         //printf("recSumRifght: %d\n", recSumRight);
         //printf("node->data: %d\n", node->data);
+    
+        int sum = node->data + recSumLeft + recSumRight;
 
-        return node->data + recSumLeft + recSumRight;
+        return sum;
     }
 }
 
@@ -158,21 +178,26 @@ int recursiveSummer(bstnode_t* node) {
 // exits the program for a NULL tree. 
 // It should run in O(n) time.
 int bst_sum(bst_t *t){
+
+    // Check if NULL
     if(t==NULL) {
         exit(0);
     } else {
+        // Call function recursively from root
         return recursiveSummer(t->root);
     }
 }
 
 
 int recursiveFinder(bstnode_t* node, int value) {
+    // Check for given value
     if(node->data == value) {
         return 1;
     } else {
-      
+        // Check when less than value and not NULL per TAs recommendation
         if(value < node->data && node->leftChild != NULL) {
             recursiveFinder(node->leftChild, value);
+        // Check when greater than value and not NULL per TAs recommendation
         } else if(value > node->data && node->rightChild != NULL) {
             recursiveFinder(node->rightChild, value);
         }
@@ -184,12 +209,13 @@ int recursiveFinder(bstnode_t* node, int value) {
 // For NULL tree it exists the program. 
 // It should run in O(log(n)) time.
 int bst_find(bst_t * t, int value){
-
+    // Check of null, exit
     if(t==NULL) {
         exit(0);
     } else {
 
         //printf("bst_find searching for: %d\n", value);
+        // If not null, call recursively
         return recursiveFinder(t->root, value);
     }
 }
@@ -198,6 +224,7 @@ int bst_find(bst_t * t, int value){
 // A BST that is NULL exits the program.
 // (i.e. A NULL BST cannot return the size)
 unsigned int bst_size(bst_t* t){
+    // Check if null, otherwise return size
     if (t==NULL) {
         exit(0);
     } else {
@@ -206,6 +233,7 @@ unsigned int bst_size(bst_t* t){
 }
 
 void recursiveFreeing(bstnode_t* node) {
+    // Check if null, otherwise free everything
     if(node != NULL) {
         recursiveFreeing(node->leftChild);
         recursiveFreeing(node->rightChild);
@@ -218,6 +246,8 @@ void recursiveFreeing(bstnode_t* node) {
 // Removes a BST and ALL of its elements from memory.
 // This should be called before the proram terminates.
 void bst_free(bst_t* t){
+
+    // Check if NULL, otherwise free
     if(t == NULL) {
         return;
     }

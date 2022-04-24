@@ -26,6 +26,15 @@
 // We will use our own test suite (i.e. replacing this file)
 // in order to test your implementation from my_bst.
 
+
+// Testing free
+int unitTest0(){
+    int result;
+    bst_t * testBST = bst_create();
+    bst_free(testBST);
+    return 1; 
+}
+
 // Testing allocation
 int unitTest1(){
     int result;
@@ -70,7 +79,9 @@ int unitTest4() {
     bst_t * testBST = bst_create();
     bst_add(testBST, 66);
     result = bst_sum(testBST);
+
     bst_free(testBST);
+
     if(result == 66) {
         return 1;
     }
@@ -83,7 +94,9 @@ int unitTest5() {
     bst_t * testBST = bst_create();
     bst_add(testBST, 5);
     result = bst_find(testBST, 5);
+
     bst_free(testBST);
+
     return result;
 }
 
@@ -91,19 +104,35 @@ int unitTest5() {
 int unitTest6() {
     
     bst_t * testBST = bst_create();
+
     bst_add(testBST, 5);
+
     bst_print(testBST, 0);
+
     return 1;
+}
+
+// Testing free with nodes
+int unitTest7() {
+    int result;
+    bst_t * testBST = bst_create();
+    bst_add(testBST, 5);
+    
+    bst_free(testBST);
+    return 1;
+
 }
 
 // TODO: Add more tests here at your discretion
 int (*unitTests[])(int)={
+    unitTest0,
     unitTest1,
     unitTest2,
     unitTest3,
     unitTest4,
     unitTest5,
     unitTest6,
+    unitTest7,
     NULL
 };
 
