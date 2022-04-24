@@ -108,7 +108,7 @@ void print_desc(bstnode_t* node) {
     } else {
         // Print starting with rightChild
         print_desc(node->rightChild);
-        printf(">>>> %d", node->data);
+        printf("> %d\n", node->data);
         print_desc(node->leftChild);
     }
 }
@@ -120,7 +120,7 @@ void print_asc(bstnode_t* node) {
     } else {
         // Print ASC starting with leftChild
         print_asc(node->leftChild);
-        printf(">>>> %d", node->data);
+        printf("> %d\n", node->data);
         print_asc(node->rightChild);
     }
 }
@@ -238,6 +238,8 @@ void recursiveFreeing(bstnode_t* node) {
         recursiveFreeing(node->leftChild);
         recursiveFreeing(node->rightChild);
         free(node);
+    } else {
+        return;
     }
 }
 
@@ -247,11 +249,10 @@ void recursiveFreeing(bstnode_t* node) {
 // This should be called before the proram terminates.
 void bst_free(bst_t* t){
 
-    // Check if NULL, otherwise free
-    if(t == NULL) {
-        return;
+    if(t){
+        recursiveFreeing(t->root);
+        free(t);
+
     }
-    recursiveFreeing(t->root);
-    free(t);
 }
 

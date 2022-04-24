@@ -104,16 +104,30 @@ int unitTest5() {
 int unitTest6() {
     
     bst_t * testBST = bst_create();
-
     bst_add(testBST, 5);
+    bst_add(testBST, 1);
+    bst_add(testBST, 3);
+    bst_add(testBST, 2);
 
     bst_print(testBST, 0);
 
     return 1;
 }
 
-// Testing free with nodes
+// Testing print desc
 int unitTest7() {
+    bst_t * testBST = bst_create();
+    bst_add(testBST, 5);
+    bst_add(testBST, 1);
+    bst_add(testBST, 3);
+    bst_add(testBST, 2);
+
+    bst_print(testBST, 1);
+    return 1;
+}
+
+// Testing free with nodes
+int unitTest8() {
     int result;
     bst_t * testBST = bst_create();
     bst_add(testBST, 5);
@@ -121,6 +135,23 @@ int unitTest7() {
     bst_free(testBST);
     return 1;
 
+}
+
+// Testing size
+int unitTest9() {
+    int result;
+    bst_t * testBST = bst_create();
+    bst_add(testBST, 5);
+    bst_add(testBST, 3);
+    bst_add(testBST, 1);
+ 
+    result = bst_size(testBST);
+
+    if(result == 3) {
+        return 1;
+    } else {
+        return 0;
+   }
 }
 
 // TODO: Add more tests here at your discretion
@@ -133,6 +164,8 @@ int (*unitTests[])(int)={
     unitTest5,
     unitTest6,
     unitTest7,
+    unitTest8,
+    unitTest9,
     NULL
 };
 
