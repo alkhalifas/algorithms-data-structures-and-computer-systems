@@ -16,6 +16,7 @@ bst_t* bst_create(){
     myBST->root = NULL;
     // Set size as 0
     myBST->size = 0;
+    printf("BST Created!\n");
     return myBST;
 }
 
@@ -27,6 +28,8 @@ bstnode_t* create_node(int item) {
     // Assign NULL for left and right children
     node->rightChild = NULL;
     node->leftChild = NULL;
+
+    printf("BST Node Created!, item: %d\n", item);
     // Return the newly created node
     return node;
 }
@@ -89,6 +92,7 @@ int bst_add(bst_t* t, int item){
             t->size++;
         }
     }
+    printf("bst_add completed\n");
     return state;
 }
 
@@ -107,9 +111,8 @@ int recursiveSummer(bstnode_t* node) {
     if(node) {
         node->data = recursiveSummer(node->leftChild) + recursiveSummer(node->rightChild);
         return node->data;
-    } else {
-        return 0;
     }
+    return 0;
 }
 
 // Returns the sum of all the nodes in the bst. 
@@ -118,7 +121,7 @@ int recursiveSummer(bstnode_t* node) {
 int bst_sum(bst_t *t){
     
     int sum = recursiveSummer(t->root);
-    
+    printf("BST sum called: %d\n", sum); 
     return sum;
 }
 
