@@ -11,8 +11,9 @@
 // The BST fields should also be initialized to default values(i.e. size=0).
 bst_t* bst_create(){
     // Modify the body of this function as needed.
-    bst_t* myBST= NULL; 
-
+    bst_t* myBST= (bst_t*)malloc(sizeof(bst_t)); 
+    myBST->root = NULL;
+    myBST->size = 0;
     return myBST;
 }
 
