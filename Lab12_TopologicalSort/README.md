@@ -208,9 +208,9 @@ eat exercise
 
 Your answer:
 
-1. *edit your response*
-2. *edit your response*
-3. *edit your response*
+1. *Topological sorting is specifically for directed acyclic graphs. DAGs are a linear order of vertices that represent edges and vertices.*
+2. *No, as there is no way to determine where the sorting process should start.*
+3. *The presence of a cycle could be detected using depth-first traversal!*
 
 
 # Deliverable
