@@ -1,13 +1,15 @@
 # TODO Please edit the following information in your assignment
 
-- Name:
-- How many hours did it take you to complete this assignment?
-- Did you collaborate with any other students/TAs/Professors?
+- Name: Saleh Alkhalifa
+- How many hours did it take you to complete this assignment? A little over 8 hours in total
+- Did you collaborate with any other students/TAs/Professors? I referred to much of comment on Piazza that Juan posted about
 - Did you use any external resources? (Cite them below)
-  - tbd
-  - tbd
-- (Optional) What was your favorite part of the assignment?
-- (Optional) How would you improve the assignment?
+  - [Binary Search Trees](https://www.programiz.com/dsa/binary-search-tree)
+  - [BST Search and Insertion](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/)
+  - [BST Insertion](https://www.thecrazyprogrammer.com/2015/03/c-program-for-binary-search-tree-insertion.html)
+  - [BST free memory](https://stackoverflow.com/questions/9181146/freeing-memory-of-a-binary-tree-c)
+- (Optional) What was your favorite part of the assignment? I liked working with the logic behind creating and setting the nodes. It was nice learning how to create that type of logic as I had never worked with that before. I particularly enjoyed learning about how simple yet effective a tree can be - I am looking thinking of a few use cases at work where this data structure could be effective.
+- (Optional) How would you improve the assignment? Some more guidance on time complexity would be appreciated. Although I am fairly certain I now know how time complexity can be thought of when coding a given function such as search, I still feel a little shakey -- some more guidance or help would be appreciated.
 
 # Logistics
 
