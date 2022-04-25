@@ -1,2 +1,11 @@
 eat sleep
 eat exercise
+exercise run
+run drink
+sleep shower
+shower work
+work study
+study cook
+cook eat
+eat rest
+rest exercise
