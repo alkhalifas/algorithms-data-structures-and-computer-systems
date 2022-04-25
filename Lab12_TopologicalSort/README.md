@@ -150,8 +150,8 @@ Okay, now that you understand the data structure, you will implement two functio
 
 Your answers here:
 
-1. *edit your response*
-2. *edit your response*
+1. *The space complexity for an adjacency matrix is O(V), where V is the number of vertices.*
+2. *It does not make sense for the Rows and Columns to not be equal, as the matrix is by definition a square and must have equal sides.*
 
 
 ## Compiling and running the program.
