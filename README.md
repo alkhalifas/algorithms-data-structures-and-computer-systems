@@ -1,30 +1,34 @@
-# Monorepo
+# CS5008 - Data Structures, Algorithms, and Computer Systems
 
-- [ ] Name: Saleh Alkhalifa
-- [ ] Pronounced: [Saa-Leh]
+Collection of Labs and Homework Assignments
 
-## Important Documents 
+## Labs:
 
-- Read the FAQ
-  - [Monorepo F.A.Q](./docs/faq.md) -- Answers questions like if you are allowed to share individual assignments(NO!), how to get an account, etc.
-- The Token - Late Day Extension System
-  - [Tokens Extension System](./docs/tokens.md) -- Answers questions about how to extend our assignment or lab to avoid late penalties.
-- Tips
-  -  [docs/Tips](./docs/Tips.md) -- Contains a few programming tips to keep in mind.
-- How can I efficiently get help?
-  -  [docs/Help](./docs/Help.md) -- Tips on how to help us, help you.
+- Lab1 - Unix Terminal
+- Lab2 - Linked List Data Structure
+- Lab3 - CStrings with C Lang
+- Lab4 - Intro to Assembly 
+- Lab5 - Linkers
+- Lab6 - System Processes
+- Lab7 - Parallel Processes
+- Lab8 - Selection Sort
+- Lab9 - Bubble Sort
+- Lab10 - Quick Sort
+- Lab11 - Recursion & Depth First Search
+- Lab12 - Topological Sort
+- Lab13 - Fibonacci
 
-## Using the Monorepo to get help
+## Assignments:
 
-One awesome thing about having all of your code in github, is that you can share a link to the course staff to specific source files when you need help. So when posting to piazza:
-
-1. Share a link to your code (Don't worry, the repositories are private, so other students cannot access your code).
-2. Make sure to push any changes made--anything you see online is what we will also see.
-
-## Partners Spreadsheet
-(For working in teams on assignments)
-
-https://docs.google.com/spreadsheets/d/1Q9uylTZ97fFXb2nFoYLvhgYufi2lRxw-xGj5AAqU5XM/edit?usp=sharing
-
-*Note: You do not have to work with a partner (and you can switch if you choose after each assignment), but if you choose to, you may use this sheet to help faciliate finding a partner by reaching out to their email on the sheet. Consider having a partner as fully optional in this class. The Assignment workload is designed to be completed individually.
+- Assignment1 - Guessing Game
+- Assignment2 - C Language Data Structures
+- Assignment3 - Queue Data Structure
+- Assignment4 - Assembly
+- Assignment5 - Hashmap Data Structure
+- Assignment6 - Shells and Signal Handlers
+- Assignment7 - Concurrent Processes
+- Assignment8 - Insertion Sort
+- Assignment9 - Mathematical Proofs
+- Assignment10 - Merge Sort
+- Assignment11 - Binary Search Trees
 
